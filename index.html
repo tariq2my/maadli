@@ -5,7 +5,7 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-ar="منصة معدلي - حاسبة الموزونة والمعدل الجامعي المطور" data-en="MyGrade Platform - Developed Weighted & University GPA Calculator">منصة معدلي - حاسبة الموزونة والمعدل الجامعي المطور</title>
+    <title id="pageTitle">منصة معدلي - حاسبة الموزونة والمعدل الجامعي المطور</title>
     <style>
         :root {
             --primary: #2c3e50;
@@ -222,27 +222,27 @@
     </div>
 
     <div id="welcome-screen" class="welcome-screen">
-        <h1 class="welcome-title" id="welcomeTitle" data-ar="منصة معدلي" data-en="Maadli Platform">منصة معدلي</h1>
-        <p class="welcome-subtitle" id="welcomeSubtitle" data-ar="اختر الخدمة التي ترغب في استخدامها للبدء" data-en="Select the service you wish to use to get started">اختر الخدمة التي ترغب في استخدامها للبدء</p>
+        <h1 class="welcome-title" id="welcomeTitle">منصة معدلي</h1>
+        <p class="welcome-subtitle" id="welcomeSubtitle">اختر الخدمة التي ترغب في استخدامها للبدء</p>
         
         <div class="choices-grid">
             <div class="choice-card" onclick="showCalculator('weighted-tab')">
                 <div class="choice-icon">🧮</div>
-                <h3 id="choice1Title" data-ar="حساب النسبة الموزونة" data-en="Calculate Weighted Percentage">حساب النسبة الموزونة</h3>
-                <p id="choice1Desc" data-ar="لخريجي الثانوية العامة المتقدمين للجامعات بـ (ثانوي، قدرات، تحصيلي)" data-en="For high school graduates applying to universities using (High School, GAT, Achievement Test)">لخريجي الثانوية العامة المتقدمين للجامعات بـ (ثانوي، قدرات، تحصيلي)</p>
+                <h3 id="choice1Title">حساب النسبة الموزونة</h3>
+                <p id="choice1Desc">لخريجي الثانوية العامة المتقدمين للجامعات بـ (ثانوي، قدرات، تحصيلي)</p>
             </div>
             
             <div class="choice-card" onclick="openGpaCalculator()">
                 <div class="choice-icon">🎓</div>
-                <h3 id="choice2Title" data-ar="حساب المعدل الجامعي" data-en="Calculate University GPA">حساب المعدل الجامعي</h3>
-                <p id="choice2Desc" data-ar="لطلاب الجامعات لحساب المعدل التراكمي والنقاط بدقة متناهية" data-en="For university students to calculate cumulative GPA and points with extreme accuracy">لطلاب الجامعات لحساب المعدل التراكمي والنقاط بدقة متناهية</p>
+                <h3 id="choice2Title">حساب المعدل الجامعي</h3>
+                <p id="choice2Desc">لطلاب الجامعات لحساب المعدل التراكمي والنقاط بدقة متناهية</p>
             </div>
         </div>
     </div>
 
     <div id="weighted-tab" class="calculator-content">
         <button class="back-btn" onclick="showWelcomeScreen()"><span class="backBtnText">➡️ العودة للرئيسية</span></button>
-        <h2 id="weightedTitle" data-ar="حساب النسبة الموزونة للقبول" data-en="Calculate Weighted Percentage for Admission">حساب النسبة الموزونة للقبول</h2>
+        <h2 id="weightedTitle">حساب النسبة الموزونة للقبول</h2>
         <div class="info-note" id="weightedNote">
             💡 <strong>طريقة الاستخدام:</strong> حدد النسبة المطلوبة من قِبل الجامعة في خانة (الوزن %)، ثم أدخل درجاتك الشخصية بالأسفل. تأكد أن مجموع الأوزان الثلاثة يساوي 100%.
         </div>
@@ -286,7 +286,7 @@
 
     <div id="gpa-tab" class="calculator-content">
         <button class="back-btn" onclick="showWelcomeScreen()"><span class="backBtnText">➡️ العودة للرئيسية</span></button>
-        <h2 id="gpaMainTitle" data-ar="حساب المعدل الجامعي الأكاديمي" data-en="Calculate Academic University GPA">حساب المعدل الجامعي الأكاديمي</h2>
+        <h2 id="gpaMainTitle">حساب المعدل الجامعي الأكاديمي</h2>
         
         <div class="grid-3">
             <div class="input-box">
@@ -299,8 +299,8 @@
             <div class="input-box">
                 <label id="lblCalcType">آلية الحساب المفضلة:</label>
                 <select id="calculationType" onchange="toggleCalculationTypeInputs()">
-                    <option value="cumulative" id="optCalcCum">المعدل التراكمي (بالطريقة التقليدية)</option>
-                    <option value="points" id="optCalcPoints">النقاط التراكمية (الأكثر دقة)</option>
+                    <option value="cumulative" id="optScaleCum">المعدل التراكمي (بالطريقة التقليدية)</option>
+                    <option value="points" id="optScalePoints">النقاط التراكمية (الأكثر دقة)</option>
                 </select>
             </div>
         </div>
@@ -357,7 +357,7 @@
             <div class="faq-answer"><p id="faqA2">زر العين (👁️) يسمح لك باستبعاد مادة معينة مؤقتاً من الحسابات دون مسح بياناتها. هذا يساعدك على تجربة سيناريوهات مختلفة ومعرفة تأثير مادة معينة على معدلك التراكمي صعوداً وهبوطاً.</p></div>
         </div>
         <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)"><span id="faqQ3">كيف يتم احتساب النسبة الموزونة لخريجي الثانوية?</span> <span>➕</span></button>
+            <button class="faq-question" onclick="toggleFaq(this)"><span id="faqQ3">كيف يتم احتساب النسبة الموزونة لخريجي الثانوية؟</span> <span>➕</span></button>
             <div class="faq-answer"><p id="faqA3">يتم الحساب بضرب درجتك في النسبة المئوية التي تطلبها كل جامعة (مثال: درجة الثانوي × 0.30) ثم جمع النواتج الثلاثة معاً للحصول على نسبتك المركبة النهائية من 100%.</p></div>
         </div>
         <div class="faq-item">
@@ -395,16 +395,24 @@
 
 <script>
     let currentLang = 'ar';
+    let subjectCount = 0;
+    const hasRated = {};
 
     const translations = {
         ar: {
+            pageTitle: "منصة معدلي - حاسبة الموزونة والمعدل الجامعي المطور",
             themeDark: "🌙 مظهر داكن", themeLight: "☀️ مظهر فاتح", langBtn: "🌐 English",
+            welcomeTitle: "منصة معدلي", welcomeSubtitle: "اختر الخدمة التي ترغب في استخدامها للبدء",
+            choice1Title: "حساب النسبة الموزونة", choice1Desc: "لخريجي الثانوية العامة المتقدمين للجامعات بـ (ثانوي، قدرات، تحصيلي)",
+            choice2Title: "حساب المعدل الجامعي", choice2Desc: "لطلاب الجامعات لحساب المعدل التراكمي والنقاط بدقة متناهية",
+            weightedTitle: "حساب النسبة الموزونة للقبول",
             backBtn: "➡️ العودة للرئيسية", toastText: "⚠️ عذراً، يجب الإبقاء على مادة واحدة على الأقل لإجراء الحسابات!",
             weightedNote: "💡 <strong>طريقة الاستخدام:</strong> حدد النسبة المطلوبة من قِبل الجامعة في خانة (الوزن %)، ثم أدخل درجاتك الشخصية بالأسفل. تأكد أن مجموع الأوزان الثلاثة يساوي 100%.",
             fieldsetLegend: "النسب المطلوبة من الجامعة (%)", lblWHs: "وزن الثانوي المطلوب", lblWQat: "وزن القدرات المطلوب", lblWTah: "وزن التحصيلي المطلوب",
             lblHs: "درجة الثانوية العامة:", lblQat: "درجة اختبار القدرات:", lblTah: "درجة اختبار التحصيلي:", btnCalcWeighted: "احسب النسبة الموزونة الآن",
+            gpaMainTitle: "حساب المعدل الجامعي الأكاديمي",
             lblGpaScale: "نظام معدل الجامعة:", lblCalcType: "آلية الحساب المفضلة:", optScale5: "من 5", optScale4: "من 4",
-            optCalcCum: "المعدل التراكمي (بالطريقة التقليدية)", optCalcPoints: "النقاط التراكمية (الأكثر دقة)",
+            optScaleCum: "المعدل التراكمي (بالطريقة التقليدية)", optScalePoints: "النقاط التراكمية (الأكثر دقة)",
             lblPrevGpa: "المعدل التراكمي السابق:", lblPrevPoints: "إجمالي النقاط السابقة:", lblPrevHours: "الساعات المجتازة السابقة:",
             phGpaFreshman: "اتركه 0 إذا كنت مستجد", phPointsExample: "مثال: 145.5 نقطة", lblCurrentTerm: "أضف مواد الفصل الحالي:",
             hdrSubName: "اسم المادة", hdrSubHours: "الساعات", hdrSubGrade: "التقدير", hdrSubStatus: "تفعيل", hdrSubAction: "حذف",
@@ -420,8 +428,8 @@
                 <p>هذا الموقع عبارة عن حاسبة ويب تفاعلية. جميع الدرجات، الساعات، والمعدلات التي تدخلها يتم معالجتها وحسابها محلياً بالكامل داخل متصفح جهازك ولا يتم حفظها أو رفعها إلى أي سيرفرات خارجية.</p>
                 <h4>2. ملفات تعريف الارتباط والإعلانات</h4>
                 <p>نحن نستعين بشركات إعلان كأطراف خارجية (مثل Google AdSense) لعرض الإعلانات عند زيارتك لموقعنا. قد تستخدم هذه الشركات معلومات (لا تشمل اسمك أو عنوانك أو بريدك) حول زياراتك لهذا الموقع من أجل تقديم إعلانات حول السلع والخدمات التي تهمك عن طريق ملفات تعريف الارتباط (Cookies).</p>
-                <h4>3. ملقمات الطرف الثالث</h4>
-                <p>تستخدم Google ملف تعريف الارتباط DART لعرض الإعلانات للمستخدمين استناداً إلى زياراتهم لموقعنا والمواقع الأخرى على الإنترنت. يمكن للمستخدمين إلغاء استخدام ملف تعريف الارتباط DART من خلال زيارة سياسة الخصوصية الخاصة بشبكة Google الإعلانية.</p>
+                <h4>3. ملفات تعريف ارتباط شبكة Google الإعلانية</h4>
+                <p>تستخدم Google ملف تعريف الارتباط لعرض الإعلانات للمستخدمين استناداً إلى زياراتهم لموقعنا والمواقع الأخرى على الإنترنت. يمكن للمستخدمين إلغاء استخدام هذه الملفات من خلال زيارة سياسة الخصوصية الخاصة بشبكة Google الإعلانية.</p>
             `,
             faqQ1: "ما هي أهمية آلية الحساب بالنقاط التراكمية؟", faqA1: "حساب المعدل عبر النقاط السابقة يحميك من الفروقات الناتجة عن التقريب الرقمي في المعدل المكتوب؛ فهو يجمع نقاطك الحالية مع نقاطك التاريخية الحقيقية بدقة تامة ثم يقسمها على إجمالي الساعات للوصول للقيمة الحسابية الصحيحة.",
             faqQ2: "كيف أستخدم ميزة تفعيل وإلغاء تنشيط المواد الحالية؟", faqA2: "زر العين (👁️) يسمح لك باستبعاد مادة معينة مؤقتاً من الحسابات دون مسح بياناتها. هذا يساعدك على تجربة سيناريوهات مختلفة ومعرفة تأثير مادة معينة على معدلك التراكمي صعوداً وهبوطاً.",
@@ -435,181 +443,103 @@
             resWeightedText: "✨ نسبتك الموزونة هي: ", resCurrentPoints: "📊 نقاط الفصل الحالي المكتسبة: ", resCurrentGpa: "📝 معدل الفصل الحالي المتوقع: ",
             resCumGpaPoints: "🎓 المعدل التراكمي الشامل (بالنقاط): ", resCumGpaTraditional: "🎓 المعدل التراكمي الكلي المتوقع: ", outOf: " من ", pointsWord: " نقطة ",
             resFooterPrecision: "تم حساب المعدل بقسمة إجمالي النقاط ({p}) على إجمالي الساعات ({h}) بدقة متناهية.",
-            contactSuccess: "شكراً لك! تم إرسال رسالتك بنجاح الدعم المباشر."
+            contactSuccess: "شكراً لك! تم إرسال رسالتك بنجاح للدعم المباشر."
         },
         en: {
+            pageTitle: "MyGrade Platform - Developed Weighted & University GPA Calculator",
             themeDark: "🌙 Dark Mode", themeLight: "☀️ Light Mode", langBtn: "🌐 العربية",
+            welcomeTitle: "Maadli Platform", welcomeSubtitle: "Select the service you wish to use to get started",
+            choice1Title: "Calculate Weighted Percentage", choice1Desc: "For high school graduates applying to universities using (High School, GAT, Achievement Test)",
+            choice2Title: "Calculate University GPA", choice2Desc: "For university students to calculate cumulative GPA and points with extreme accuracy",
+            weightedTitle: "Calculate Weighted Percentage for Admission",
             backBtn: "➡️ Back to Main", toastText: "⚠️ Sorry, you must keep at least one subject to calculate!",
             weightedNote: "💡 <strong>How to use:</strong> Specify the required weight from the university in the (Weight %) fields, then enter your personal scores below. Ensure the total sum of the weights equals exactly 100%.",
             fieldsetLegend: "Required University Percentages (%)", lblWHs: "Required High School Weight", lblWQat: "Required GAT Weight", lblWTah: "Required Achievement Weight",
             lblHs: "High School Score:", lblQat: "GAT (Qadrat) Score:", lblTah: "Achievement (Tahseely) Score:", btnCalcWeighted: "Calculate Weighted Score Now",
+            gpaMainTitle: "Calculate Academic University GPA",
             lblGpaScale: "GPA Scale System:", lblCalcType: "Preferred Calculation Method:", optScale5: "Out of 5", optScale4: "Out of 4",
-            optCalcCum: "Cumulative GPA (Traditional Method)", optCalcPoints: "Cumulative Points (Most Accurate)",
+            optScaleCum: "Cumulative GPA (Traditional)", optScalePoints: "Cumulative Points (Most Accurate)",
             lblPrevGpa: "Previous Cumulative GPA:", lblPrevPoints: "Total Previous Points:", lblPrevHours: "Previous Earned Hours:",
-            phGpaFreshman: "Leave 0 if you are a freshman", phPointsExample: "E.g., 145.5 points", lblCurrentTerm: "Add Current Term Subjects:",
+            phGpaFreshman: "Leave 0 if freshman", phPointsExample: "E.g., 145.5 points", lblCurrentTerm: "Add Current Term Subjects:",
             hdrSubName: "Subject Name", hdrSubHours: "Hours", hdrSubGrade: "Grade", hdrSubStatus: "Status", hdrSubAction: "Action",
             btnAddSubject: "+ Add Extra Subject", btnCalcGpa: "Calculate Weighted GPA Now", 
             btnFaqModal: "🙋‍♂️ FAQs", btnPrivacyModal: "🔒 Privacy Policy", btnContactModal: "✉️ Contact Us",
             lblFaqTitle: "🙋‍♂️ Student FAQs & Help Guide",
             lblPrivacyTitle: "🔒 Privacy Policy", lblContactTitle: "✉️ Contact Us",
-            lblContactDesc: "We look forward to receiving your inquiries and suggestions. You can send your message directly from here:",
+            lblContactDesc: "We look forward to receiving your suggestions. Send your message directly here:",
             btnSendContact: "Send Message",
             privacyContent: `
-                <p>Welcome to Maadli Platform. We value your data privacy immensely and commit to it through the following terms:</p>
-                <h4>1. Data Collection and Usage</h4>
-                <p>This website is an interactive web calculator. All grades, hours, and GPAs you enter are processed and calculated fully locally inside your device's browser and are not saved or uploaded to any external servers.</p>
-                <h4>2. Cookies and Advertising</h4>
-                <p>We use third-party advertising companies (such as Google AdSense) to serve ads when you visit our website. These companies may use information (not including your name, address, or email) about your visits to this site in order to provide advertisements about goods and services of interest to you via Cookies.</p>
-                <h4>3. Third-Party Servers</h4>
-                <p>Google uses the DART cookie to serve ads to users based on their visit to our site and other sites on the Internet. Users may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy.</p>
+                <p>Welcome to Maadli Platform. We value your data privacy immensely through the following terms:</p>
+                <h4>1. Data Processing</h4>
+                <p>This is a web calculator. All grades and credits entered are processed locally inside your browser and never transmitted to external servers.</p>
+                <h4>2. Cookies and Advertisements</h4>
+                <p>We use vendors like Google AdSense to serve ads. These companies may use cookies to serve targeted ads based on visits to this and other websites.</p>
+                <h4>3. Google Ad Cookie</h4>
+                <p>Google's use of advertising cookies enables it and its partners to serve ads based on user visits. You can opt out of personalized ads via Google settings.</p>
             `,
-            faqQ1: "Why is the cumulative points calculation method important?", faqA1: "Calculating your GPA using previous points protects you from mathematical discrepancies caused by rounding errors in written GPAs. It aggregates your current points with your true historical points, then divides them by total hours for perfect mathematical precision.",
-            faqQ2: "How do I use the activate/deactivate subject feature?", faqA2: "The eye icon (👁️) allows you to temporarily exclude a specific subject from calculations without deleting its data. This helps you experiment with different scenarios and see the specific impact of a subject on your cumulative GPA.",
-            faqQ3: "How is the weighted percentage calculated for high school graduates?", faqA3: "It is calculated by multiplying your score by the percentage required by the university (e.g., High School Score × 0.30) and then summing up the three results to get your final aggregate score out of 100%.",
-            faqQ4: "What is the difference between a 4-point and a 5-point GPA system?", faqA4: "The weight of each grade varies by the university's system; for instance, an (A+) equals 5.0 points in a 5-point system, while it equals 4.0 points in a 4-point system. The calculator applies the official weight automatically based on your choice.",
-            ratingTitle: "How would you rate your calculation experience?", rateExcellent: "😊 Excellent", rateNeutral: "😐 Neutral", rateSad: "🙁 Bad",
-            thankYou: "✨ Thank you! Your rating has been received.", thankYouAlready: "✨ Thank you for using our platform!",
-            alertWeights: "Alert: The sum of the required weights must equal exactly 100%.",
-            alertGpaInputs: "Please enter the hours and select a grade for active subjects first.",
-            rowPh: "E.g., Elective Course", optSelectGrade: "Select Grade", deleteBtn: "Delete",
-            resWeightedText: "✨ Your weighted percentage is: ", resCurrentPoints: "📊 Current Term Points Earned: ", resCurrentGpa: "📝 Expected Current Term GPA: ",
-            resCumGpaPoints: "🎓 Comprehensive Cumulative GPA (By Points): ", resCumGpaTraditional: "🎓 Expected Cumulative GPA: ", outOf: " out of ", pointsWord: " points ",
-            resFooterPrecision: "The GPA was calculated by dividing total points ({p}) by total hours ({h}) with extreme accuracy.",
-            contactSuccess: "Thank you! Your message has been sent successfully to direct support."
+            faqQ1: "Why is the cumulative points method more accurate?", faqA1: "Calculating GPA using previous actual points protects you from mathematical rounding discrepancies. It adds your current earned points to historical total points, then divides by total accumulated hours.",
+            faqQ2: "How do I use the include/exclude toggle feature?", faqA2: "The visibility icon (👁️) lets you temporarily omit a course from calculation without wiping its input data. It lets you safely run 'what-if' scenarios to see grade impacts.",
+            faqQ3: "How is the weighted percentage score calculated?", faqA3: "It scales your grades according to the required ratios (e.g., High School Score × 0.30) and combines them into a finalized score out of 100%.",
+            faqQ4: "What is the difference between 4.0 and 5.0 systems?", faqA4: "The mathematical weight differs. For instance, an A+ equals 5.0 points in the 5-scale system, and 4.0 points in the 4-scale system. The system adjusts automatically.",
+            ratingTitle: "Rate your calculation experience", rateExcellent: "😊 Excellent", rateNeutral: "😐 Neutral", rateSad: "🙁 Bad",
+            thankYou: "✨ Thank you! Feedback received.", thankYouAlready: "✨ Thanks for using our platform!",
+            alertWeights: "Alert: The total sum of the university weights must equal exactly 100%.",
+            alertGpaInputs: "Please input credit hours and select grades for all active rows first.",
+            rowPh: "E.g., Elective course", optSelectGrade: "Select Grade", deleteBtn: "Delete",
+            resWeightedText: "✨ Your Weighted Percentage is: ", resCurrentPoints: "📊 Current Term Earned Points: ", resCurrentGpa: "📝 Predicted Current Term GPA: ",
+            resCumGpaPoints: "🎓 Comprehensive Cumulative GPA (Points): ", resCumGpaTraditional: "🎓 Overall Expected Cumulative GPA: ", outOf: " out of ", pointsWord: " points ",
+            resFooterPrecision: "GPA computed by dividing total cumulative points ({p}) over total hours ({h}) with maximum precision.",
+            contactSuccess: "Thank you! Your message has been sent successfully to support."
         }
     };
 
-    const gradeValues = {
-        5: { 'A+': 5.0, 'A': 4.75, 'B+': 4.5, 'B': 4.0, 'C+': 3.5, 'C': 3.0, 'D+': 2.5, 'D': 2.0, 'F': 1.0 },
-        4: { 'A+': 4.0, 'A': 4.0, 'B+': 3.5, 'B': 3.0, 'C+': 2.5, 'C': 2.0, 'D+': 1.5, 'D': 1.0, 'F': 0.0 }
+    const gradePointsMapping = {
+        "5": [
+            { text: { ar: "أ+ (5.00)", en: "A+ (5.00)" }, val: 5.00 }, { text: { ar: "أ (4.75)", en: "A (4.75)" }, val: 4.75 },
+            { text: { ar: "ب+ (4.50)", en: "B+ (4.50)" }, val: 4.50 }, { text: { ar: "ب (4.00)", en: "B (4.00)" }, val: 4.00 },
+            { text: { ar: "ج+ (3.50)", en: "C+ (3.50)" }, val: 3.50 }, { text: { ar: "ج (3.00)", en: "C (3.00)" }, val: 3.00 },
+            { text: { ar: "د+ (2.50)", en: "D+ (2.50)" }, val: 2.50 }, { text: { ar: "د (2.00)", en: "D (2.00)" }, val: 2.00 },
+            { text: { ar: "هـ (1.00)", en: "F (1.00)" }, val: 1.00 }
+        ],
+        "4": [
+            { text: { ar: "+أ (4.00)", en: "A+ (4.00)" }, val: 4.00 }, { text: { ar: "أ (3.75)", en: "A (3.75)" }, val: 3.75 },
+            { text: { ar: "+ب (3.50)", en: "B+ (3.50)" }, val: 3.50 }, { text: { ar: "ب (3.00)", en: "B (3.00)" }, val: 3.00 },
+            { text: { ar: "+ج (2.50)", en: "C+ (2.50)" }, val: 2.50 }, { text: { ar: "ج (2.00)", en: "C (2.00)" }, val: 2.00 },
+            { text: { ar: "+د (1.50)", en: "D+ (1.50)" }, val: 1.50 }, { text: { ar: "د (1.00)", en: "D (1.00)" }, val: 1.00 },
+            { text: { ar: "هـ (0.00)", en: "F (0.00)" }, val: 0.00 }
+        ]
     };
 
-    function toggleLanguage() {
-        currentLang = currentLang === 'ar' ? 'en' : 'ar';
-        const html = document.getElementById('htmlTag');
+    function showToast(text) {
+        const toast = document.getElementById('toastAlert');
+        const toastText = document.getElementById('toastText');
+        toastText.innerText = text;
+        toast.classList.add('show');
         
-        if (currentLang === 'en') {
-            html.setAttribute('dir', 'ltr');
-            html.setAttribute('lang', 'en');
-        } else {
-            html.setAttribute('dir', 'rtl');
-            html.setAttribute('lang', 'ar');
-        }
-        
-        applyTranslations();
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
     }
 
-    function applyTranslations() {
-        const t = translations[currentLang];
-        
-        document.getElementById('langBtn').innerText = t.langBtn;
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        document.getElementById('themeBtn').innerText = currentTheme === 'dark' ? t.themeLight : t.themeDark;
-        
-        document.querySelectorAll('[data-ar]').forEach(el => {
-            el.innerText = el.getAttribute(`data-${currentLang}`);
-        });
+    function showWelcomeScreen() {
+        document.getElementById('welcome-screen').style.display = 'block';
+        document.getElementById('weighted-tab').style.display = 'none';
+        document.getElementById('gpa-tab').style.display = 'none';
+    }
 
-        document.querySelectorAll('.backBtnText').forEach(btn => {
-            btn.innerText = t.backBtn;
-        });
-
-        document.getElementById('toastText').innerText = t.toastText;
-        document.getElementById('weightedNote').innerHTML = t.weightedNote;
-        document.getElementById('fieldsetLegend').innerText = t.fieldsetLegend;
-        document.getElementById('lblWHs').innerText = t.lblWHs;
-        document.getElementById('lblWQat').innerText = t.lblWQat;
-        document.getElementById('lblWTah').innerText = t.lblWTah;
-        document.getElementById('lblHs').innerText = t.lblHs;
-        document.getElementById('lblQat').innerText = t.lblQat;
-        document.getElementById('lblTah').innerText = t.lblTah;
-        document.getElementById('btnCalcWeighted').innerText = t.btnCalcWeighted;
-        
-        document.getElementById('lblGpaScale').innerText = t.lblGpaScale;
-        document.getElementById('lblCalcType').innerText = t.lblCalcType;
-        document.getElementById('optScale5').innerText = t.optScale5;
-        document.getElementById('optScale4').innerText = t.optScale4;
-        document.getElementById('optCalcCum').innerText = t.optCalcCum;
-        document.getElementById('optCalcPoints').innerText = t.optCalcPoints;
-        document.getElementById('lblPrevHours').innerText = t.lblPrevHours;
-        document.getElementById('lblCurrentTerm').innerText = t.lblCurrentTerm;
-        
-        document.getElementById('hdrSubName').innerText = t.hdrSubName;
-        document.getElementById('hdrSubHours').innerText = t.hdrSubHours;
-        document.getElementById('hdrSubGrade').innerText = t.hdrSubGrade;
-        document.getElementById('hdrSubStatus').innerText = t.hdrSubStatus;
-        document.getElementById('hdrSubAction').innerText = t.hdrSubAction;
-        
-        document.getElementById('btnAddSubject').innerText = t.btnAddSubject;
-        document.getElementById('btnCalcGpa').innerText = t.btnCalcGpa;
-        
-        document.getElementById('btnFaqModal').innerText = t.btnFaqModal;
-        document.getElementById('btnPrivacyModal').innerText = t.btnPrivacyModal;
-        document.getElementById('btnContactModal').innerText = t.btnContactModal;
-        document.getElementById('lblFaqTitle').innerText = t.lblFaqTitle;
-        document.getElementById('lblPrivacyTitle').innerText = t.lblPrivacyTitle;
-        document.getElementById('lblContactTitle').innerText = t.lblContactTitle;
-        document.getElementById('lblContactDesc').innerText = t.lblContactDesc;
-        document.getElementById('btnSendContact').innerText = t.btnSendContact;
-        document.getElementById('privacyContent').innerHTML = t.privacyContent;
-        
-        document.getElementById('faqQ1').innerText = t.faqQ1;
-        document.getElementById('faqA1').innerText = t.faqA1;
-        document.getElementById('faqQ2').innerText = t.faqQ2;
-        document.getElementById('faqA2').innerText = t.faqA2;
-        document.getElementById('faqQ3').innerText = t.faqQ3;
-        document.getElementById('faqA3').innerText = t.faqA3;
-        document.getElementById('faqQ4').innerText = t.faqQ4;
-        document.getElementById('faqA4').innerText = t.faqA4;
-
-        document.querySelectorAll('input[placeholder]').forEach(input => {
-            const phAr = input.getAttribute('data-ph-ar');
-            const phEn = input.getAttribute('data-ph-en');
-            if (phAr && phEn) {
-                input.placeholder = currentLang === 'ar' ? phAr : phEn;
-            }
-        });
-
-        document.querySelectorAll('textarea[placeholder]').forEach(txt => {
-            const phAr = txt.getAttribute('data-ph-ar');
-            const phEn = txt.getAttribute('data-ph-en');
-            if (phAr && phEn) {
-                txt.placeholder = currentLang === 'ar' ? phAr : phEn;
-            }
-        });
-
-        toggleCalculationTypeInputs();
-        updateRowPlaceholdersAndGrades();
-        
+    function showCalculator(id) {
+        document.getElementById('welcome-screen').style.display = 'none';
+        document.getElementById(id).style.display = 'block';
         document.getElementById('weightedResult').style.display = 'none';
-        document.getElementById('gpaResult').style.display = 'none';
     }
 
-    function updateRowPlaceholdersAndGrades() {
-        const t = translations[currentLang];
-        const scale = document.getElementById('gpaScale').value;
-        
-        document.querySelectorAll('#subjectsContainer .subject-row').forEach(row => {
-            const nameInput = row.querySelector('input[type="text"]');
-            if(nameInput) nameInput.placeholder = t.rowPh;
-            
-            const hoursInput = row.querySelector('.sub-hours');
-            if(hoursInput) hoursInput.placeholder = currentLang === 'ar' ? 'الساعات' : 'Hours';
-            
-            const selectGrade = row.querySelector('.sub-grade');
-            if(selectGrade) {
-                const currentVal = selectGrade.value;
-                let options = `<option value="">${t.optSelectGrade}</option>`;
-                for (let grade in gradeValues[scale]) { 
-                    options += `<option value="${grade}">${grade}</option>`; 
-                }
-                selectGrade.innerHTML = options;
-                selectGrade.value = currentVal; 
-            }
-
-            const deleteBtn = row.querySelector('.btn-danger');
-            if(deleteBtn) deleteBtn.innerText = t.deleteBtn;
-        });
+    function openGpaCalculator() {
+        showCalculator('gpa-tab');
+        document.getElementById('gpaResult').style.display = 'none';
+        if (subjectsContainer.children.length === 0) {
+            subjectCount = 0;
+            for (let i = 0; i < 4; i++) addSubjectRow(); 
+        }
     }
 
     function toggleCalculationTypeInputs() {
@@ -617,183 +547,107 @@
         const label1 = document.getElementById('labelInput1');
         const input1 = document.getElementById('prevGpa');
         const t = translations[currentLang];
-        
-        if (type === 'points') {
-            label1.innerText = t.lblPrevPoints;
-            input1.placeholder = t.phPointsExample;
-            if(input1.value === "0") input1.value = "";
-        } else {
+
+        if (type === 'cumulative') {
             label1.innerText = t.lblPrevGpa;
-            input1.placeholder = t.phGpaFreshman;
-            if(input1.value === "") input1.value = "0";
-        }
-    }
-
-    function generateRatingHtml(targetId) {
-        const t = translations[currentLang];
-        try {
-            if (localStorage && localStorage.getItem('user_has_rated')) {
-                return `<div class="inline-thank-you">${t.thankYouAlready}</div>`;
-            }
-        } catch (e) {}
-        
-        return `
-            <div class="inline-rating" id="rating_block_${targetId}">
-                <span class="inline-rating-title">${t.ratingTitle}</span>
-                <div class="inline-emojis">
-                    <button class="inline-emoji-btn" onclick="submitInlineRating('happy', '${targetId}')">${t.rateExcellent}</button>
-                    <button class="inline-emoji-btn" onclick="submitInlineRating('neutral', '${targetId}')">${t.rateNeutral}</button>
-                    <button class="inline-emoji-btn" onclick="submitInlineRating('sad', '${targetId}')">${t.rateSad}</button>
-                </div>
-            </div>
-        `;
-    }
-
-    function submitInlineRating(score, targetId) {
-        const t = translations[currentLang];
-        try { localStorage.setItem('user_has_rated', score); } catch (e) {}
-        const block = document.getElementById(`rating_block_${targetId}`);
-        if(block) { block.innerHTML = `<span class="inline-thank-you">${t.thankYou}</span>`; }
-    }
-
-    function showToastAlert() {
-        const toast = document.getElementById('toastAlert');
-        toast.classList.add('show');
-        setTimeout(() => { toast.classList.remove('show'); }, 2500);
-    }
-
-    function updateRowNumbers() {
-        const rows = document.querySelectorAll('#subjectsContainer .subject-row');
-        rows.forEach((row, index) => {
-            const numDiv = row.querySelector('.row-number');
-            if (numDiv) { numDiv.innerText = index + 1; }
-        });
-    }
-
-    function removeSubjectRow(rowId) {
-        const container = document.getElementById('subjectsContainer');
-        const totalRows = container.querySelectorAll('.subject-row').length;
-        if (totalRows <= 1) { showToastAlert(); return; }
-        const row = document.getElementById(`row_${rowId}`);
-        if(row) {
-            row.remove();
-            updateRowNumbers();
-        }
-    }
-
-    function toggleRowStatus(button, rowId) {
-        const row = document.getElementById(`row_${rowId}`);
-        if (!row) return;
-
-        if (row.classList.contains('disabled-style')) {
-            row.classList.remove('disabled-style');
-            button.innerHTML = '👁️';
-            row.setAttribute('data-enabled', 'true');
+            input1.placeholder = currentLang === 'ar' ? "اتركه 0 إذا كنت مستجد" : "Leave 0 if freshman";
+            input1.step = "0.01";
         } else {
-            row.classList.add('disabled-style');
-            button.innerHTML = '🙈';
-            row.setAttribute('data-enabled', 'false');
+            label1.innerText = t.lblPrevPoints;
+            input1.placeholder = currentLang === 'ar' ? "مثال: 145.5 نقطة" : "E.g., 145.5 points";
+            input1.step = "0.1";
         }
+        input1.value = "0";
     }
 
     function addSubjectRow() {
+        subjectCount++;
         const container = document.getElementById('subjectsContainer');
-        const scale = document.getElementById('gpaScale').value;
-        const rowId = Date.now() + Math.random().toString(36).substr(2, 5);
-        const t = translations[currentLang];
-        
-        let options = `<option value="">${t.optSelectGrade}</option>`;
-        for (let grade in gradeValues[scale]) { options += `<option value="${grade}">${grade}</option>`; }
+        const row = document.createElement('div');
+        row.className = 'subject-row';
+        row.id = `subjectRow_${subjectCount}`;
+        row.setAttribute('data-enabled', 'true');
 
-        const rowHtml = `
-            <div class="subject-row" id="row_${rowId}" data-enabled="true">
-                <div class="row-number">0</div>
-                <input type="text" placeholder="${t.rowPh}">
-                <input type="number" class="sub-hours" placeholder="${currentLang === 'ar' ? 'الساعات' : 'Hours'}" min="1">
-                <select class="sub-grade">${options}</select>
-                <button class="btn-toggle-row" onclick="toggleRowStatus(this, '${rowId}')">👁️</button>
-                <button class="btn-danger" onclick="removeSubjectRow('${rowId}')">${t.deleteBtn}</button>
-            </div>
+        const scale = document.getElementById('gpaScale').value;
+        const options = gradePointsMapping[scale];
+        const t = translations[currentLang];
+
+        let selectOptionsHtml = `<option value="">-- ${t.optSelectGrade} --</option>`;
+        options.forEach(o => {
+            selectOptionsHtml += `<option value="${o.val}">${currentLang === 'ar' ? o.text.ar : o.text.en}</option>`;
+        });
+
+        row.innerHTML = `
+            <div class="row-number">${subjectCount}</div>
+            <div><input type="text" placeholder="${t.rowPh}" class="sub-name"></div>
+            <div><input type="number" placeholder="3" class="sub-hours" min="1"></div>
+            <div><select class="sub-grade">${selectOptionsHtml}</select></div>
+            <div style="text-align:center;"><button class="btn-toggle-row" onclick="toggleRowActive(${subjectCount})">👁️</button></div>
+            <div style="text-align:center;"><button class="btn-danger" onclick="deleteSubjectRow(${subjectCount})">${t.deleteBtn}</button></div>
         `;
-        container.insertAdjacentHTML('beforeend', rowHtml);
-        updateRowNumbers();
+        container.appendChild(row);
+        reindexRows();
     }
 
-    function openGpaCalculator() {
-        document.getElementById('subjectsContainer').innerHTML = '';
-        for (let i = 0; i < 6; i++) { addSubjectRow(); }
-        showCalculator('gpa-tab');
+    function deleteSubjectRow(id) {
+        const container = document.getElementById('subjectsContainer');
+        if (container.children.length <= 1) {
+            showToast(translations[currentLang].toastText);
+            return;
+        }
+        const row = document.getElementById(`subjectRow_${id}`);
+        if (row) {
+            row.remove();
+            reindexRows();
+        }
+    }
+
+    function toggleRowActive(id) {
+        const row = document.getElementById(`subjectRow_${id}`);
+        if (!row) return;
+        const isEnabled = row.getAttribute('data-enabled') === 'true';
+        if (isEnabled) {
+            row.setAttribute('data-enabled', 'false');
+            row.classList.add('disabled-style');
+        } else {
+            row.setAttribute('data-enabled', 'true');
+            row.classList.remove('disabled-style');
+        }
+    }
+
+    function reindexRows() {
+        const container = document.getElementById('subjectsContainer');
+        let index = 1;
+        Array.from(container.children).forEach(row => {
+            const numDiv = row.querySelector('.row-number');
+            if (numDiv) numDiv.innerText = index++;
+        });
     }
 
     function updateGradeOptions() {
-        document.getElementById('subjectsContainer').innerHTML = '';
-        for (let i = 0; i < 6; i++) { addSubjectRow(); }
-    }
-
-    function openModal(modalId) { document.getElementById(modalId).classList.add('open'); }
-    function closeModal(modalId) { document.getElementById(modalId).classList.remove('open'); }
-    function closeModalOutside(event, modalId) { if(event.target.id === modalId) { closeModal(modalId); } }
-
-    function toggleFaq(button) {
-        const answer = button.nextElementSibling;
-        const icon = button.querySelectorAll('span')[1];
-        if (answer.style.maxHeight && answer.style.maxHeight !== '0px') {
-            answer.style.maxHeight = '0px';
-            answer.style.padding = '0 15px';
-            icon.innerHTML = '➕';
-        } else {
-            answer.style.maxHeight = answer.scrollHeight + "px";
-            answer.style.padding = '10px 15px';
-            icon.innerHTML = '➖';
-        }
-    }
-
-    function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const btn = document.getElementById('themeBtn');
+        const scale = document.getElementById('gpaScale').value;
+        const options = gradePointsMapping[scale];
         const t = translations[currentLang];
-        if (currentTheme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'light');
-            btn.innerHTML = t.themeDark;
-        } else {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            btn.innerHTML = t.themeLight;
-        }
-    }
+        const selects = document.querySelectorAll('.sub-grade');
 
-    function showCalculator(calculatorId) {
-        document.getElementById('welcome-screen').style.display = 'none';
-        document.getElementById(calculatorId).style.display = 'block';
-    }
-
-    function showWelcomeScreen() {
-        const calculators = document.querySelectorAll('.calculator-content');
-        calculators.forEach(calc => calc.style.display = 'none');
-        document.getElementById('welcome-screen').style.display = 'block';
-    }
-
-    function handleContactSubmit() {
-        const name = document.getElementById('contactName').value;
-        const email = document.getElementById('contactEmail').value;
-        const message = document.getElementById('contactMessage').value;
-
-        const subject = encodeURIComponent("منصة معدلي - ملاحظة جديدة من: " + name);
-        const body = encodeURIComponent("الاسم: " + name + "\nالبريد للرد: " + email + "\n\nالملاحظة:\n" + message);
-        
-        window.location.href = `mailto:maadlisupport@gmail.com?subject=${subject}&body=${body}`;
-        
-        alert(translations[currentLang].contactSuccess);
-        closeModal('contactModal');
+        selects.forEach(select => {
+            const currentVal = select.value;
+            let selectOptionsHtml = `<option value="">-- ${t.optSelectGrade} --</option>`;
+            options.forEach(o => {
+                selectOptionsHtml += `<option value="${o.val}">${currentLang === 'ar' ? o.text.ar : o.text.en}</option>`;
+            });
+            select.innerHTML = selectOptionsHtml;
+            select.value = currentVal;
+        });
     }
 
     function calculateWeighted() {
-        const t = translations[currentLang];
         const wHs = parseFloat(document.getElementById('weightHs').value) || 0;
         const wQat = parseFloat(document.getElementById('weightQat').value) || 0;
         const wTah = parseFloat(document.getElementById('weightTah').value) || 0;
 
-        if ((wHs + wQat + wTah) !== 100) {
-            alert(t.alertWeights);
+        if (wHs + wQat + wTah !== 100) {
+            alert(translations[currentLang].alertWeights);
             return;
         }
 
@@ -802,65 +656,63 @@
         const tah = parseFloat(document.getElementById('tahseely').value) || 0;
 
         const result = ((hs * wHs) + (qat * wQat) + (tah * wTah)) / 100;
-
         const resCard = document.getElementById('weightedResult');
-        resCard.innerHTML = `<div>${t.resWeightedText} <span style="font-size:24px; color:var(--secondary);">${result.toFixed(2)}%</span></div>` + generateRatingHtml('weighted');
+        resCard.innerHTML = `<div>${translations[currentLang].resWeightedText} <span style="font-size:26px; color:var(--secondary);">${result.toFixed(2)}%</span></div>` + generateRatingHtml('weighted');
         resCard.style.display = 'block';
     }
 
     function calculateAdvancedGPA() {
-        const t = translations[currentLang];
-        const scale = document.getElementById('gpaScale').value;
+        const scale = parseFloat(document.getElementById('gpaScale').value);
         const calcType = document.getElementById('calculationType').value;
-        
         const prevInput = parseFloat(document.getElementById('prevGpa').value) || 0;
         const prevHours = parseFloat(document.getElementById('prevHours').value) || 0;
 
-        let totalPoints = 0;
-        let totalHours = 0;
+        let totalPrevPoints = 0;
+        let totalPrevHours = prevHours;
 
-        if (calcType === 'points') {
-            totalPoints += prevInput;
-            totalHours += prevHours;
+        if (calcType === 'cumulative') {
+            totalPrevPoints = prevInput * prevHours;
         } else {
-            totalPoints += prevInput * prevHours;
-            totalHours += prevHours;
+            totalPrevPoints = prevInput;
         }
 
         let currentTermPoints = 0;
         let currentTermHours = 0;
-        let hasActiveSubjects = false;
-        let inputsValid = true;
+        let hasValidRow = false;
+        let inputError = false;
 
-        document.querySelectorAll('#subjectsContainer .subject-row').forEach(row => {
+        const container = document.getElementById('subjectsContainer');
+        Array.from(container.children).forEach(row => {
             if (row.getAttribute('data-enabled') === 'true') {
-                hasActiveSubjects = true;
-                const hours = parseFloat(row.querySelector('.sub-hours').value);
-                const grade = row.querySelector('.sub-grade').value;
+                const hoursInput = row.querySelector('.sub-hours');
+                const gradeSelect = row.querySelector('.sub-grade');
+                
+                const hours = parseFloat(hoursInput.value);
+                const grade = gradeSelect.value;
 
-                if (isNaN(hours) || hours <= 0 || !grade) {
-                    inputsValid = false;
+                if (isNaN(hours) || hours <= 0 || grade === "") {
+                    inputError = true;
                 } else {
-                    const gradeVal = gradeValues[scale][grade];
-                    currentTermPoints += gradeVal * hours;
+                    currentTermPoints += parseFloat(grade) * hours;
                     currentTermHours += hours;
+                    hasValidRow = true;
                 }
             }
         });
 
-        if (hasActiveSubjects && !inputsValid) {
-            alert(t.alertGpaInputs);
+        if (inputError || !hasValidRow) {
+            alert(translations[currentLang].alertGpaInputs);
             return;
         }
 
-        totalPoints += currentTermPoints;
-        totalHours += currentTermHours;
-
         const currentTermGpa = currentTermHours > 0 ? (currentTermPoints / currentTermHours) : 0;
+        const totalPoints = totalPrevPoints + currentTermPoints;
+        const totalHours = totalPrevHours + currentTermHours;
         const cumulativeGpa = totalHours > 0 ? (totalPoints / totalHours) : 0;
 
         const resCard = document.getElementById('gpaResult');
-        let footerText = t.resFooterPrecision.replace('{p}', totalPoints.toFixed(2)).replace('{h}', totalHours);
+        const t = translations[currentLang];
+        const footerText = t.resFooterPrecision.replace('{p}', totalPoints.toFixed(2)).replace('{h}', totalHours);
 
         resCard.innerHTML = `
             <div style="margin-bottom:10px;">${t.resCurrentPoints} <span>${currentTermPoints.toFixed(2)} ${t.pointsWord}</span></div>
@@ -874,17 +726,183 @@
         resCard.style.display = 'block';
     }
 
+    function generateRatingHtml(calcId) {
+        const t = translations[currentLang];
+        if (hasRated[calcId]) {
+            return `<div class="inline-rating"><div class="inline-thank-you">${t.thankYouAlready}</div></div>`;
+        }
+        return `
+            <div class="inline-rating" id="ratingArea_${calcId}">
+                <div class="inline-rating-title">${t.ratingTitle}</div>
+                <div class="inline-emojis">
+                    <button class="inline-emoji-btn" onclick="submitRating('${calcId}', 3)">${t.rateExcellent}</button>
+                    <button class="inline-emoji-btn" onclick="submitRating('${calcId}', 2)">${t.rateNeutral}</button>
+                    <button class="inline-emoji-btn" onclick="submitRating('${calcId}', 1)">${t.rateSad}</button>
+                </div>
+            </div>
+        `;
+    }
+
+    function submitRating(calcId, score) {
+        hasRated[calcId] = true;
+        const area = document.getElementById(`ratingArea_${calcId}`);
+        if (area) {
+            area.innerHTML = `<div class="inline-thank-you">${translations[currentLang].thankYou}</div>`;
+        }
+    }
+
+    function openModal(id) { document.getElementById(id).classList.add('open'); }
+    function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+    function closeModalOutside(e, id) { if (e.target.id === id) closeModal(id); }
+
+    function toggleFaq(btn) {
+        const answer = btn.nextElementSibling;
+        const indicator = btn.querySelector('span:last-child');
+        if (answer.style.maxHeight && answer.style.maxHeight !== '0px') {
+            answer.style.maxHeight = '0px';
+            answer.style.padding = '0 15px';
+            indicator.innerText = '➕';
+        } else {
+            answer.style.maxHeight = answer.scrollHeight + 30 + 'px';
+            answer.style.padding = '15px';
+            indicator.innerText = '➖';
+        }
+    }
+
+    function handleContactSubmit() {
+        const n = document.getElementById('contactName').value;
+        const e = document.getElementById('contactEmail').value;
+        const m = document.getElementById('contactMessage').value;
+        if (!n || !e || !m) {
+            alert(currentLang === 'ar' ? "الرجاء تعبئة كافة الحقول أولاً" : "Please fill all fields first.");
+            return;
+        }
+        alert(translations[currentLang].contactSuccess);
+        document.getElementById('contactName').value = '';
+        document.getElementById('contactEmail').value = '';
+        document.getElementById('contactMessage').value = '';
+        closeModal('contactModal');
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const btn = document.getElementById('themeBtn');
+        const currentTheme = html.getAttribute('data-theme');
+        let newTheme = 'light';
+        if (currentTheme !== 'dark') {
+            html.setAttribute('data-theme', 'dark');
+            newTheme = 'dark';
+        } else {
+            html.removeAttribute('data-theme');
+        }
+        try { localStorage.setItem('theme', newTheme); } catch(e){}
+        btn.innerText = newTheme === 'dark' ? translations[currentLang].themeLight : translations[currentLang].themeDark;
+    }
+
+    function toggleLanguage() {
+        currentLang = currentLang === 'ar' ? 'en' : 'ar';
+        const html = document.getElementById('htmlTag');
+        html.setAttribute('lang', currentLang);
+        html.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+
+        const t = translations[currentLang];
+        
+        // تحديث عنوان الصفحة العلوي وعناصر الشاشة الرئيسية
+        document.getElementById('pageTitle').innerText = t.pageTitle;
+        document.getElementById('langBtn').innerText = t.langBtn;
+        
+        const isDark = html.getAttribute('data-theme') === 'dark';
+        document.getElementById('themeBtn').innerText = isDark ? t.themeLight : t.themeDark;
+        
+        document.getElementById('welcomeTitle').innerText = t.welcomeTitle;
+        document.getElementById('welcomeSubtitle').innerText = t.welcomeSubtitle;
+        document.getElementById('choice1Title').innerText = t.choice1Title;
+        document.getElementById('choice1Desc').innerText = t.choice1Desc;
+        document.getElementById('choice2Title').innerText = t.choice2Title;
+        document.getElementById('choice2Desc').innerText = t.choice2Desc;
+
+        // ترجمة الأزرار العامة والتنبيهات
+        document.querySelectorAll('.backBtnText').forEach(el => el.innerText = t.backBtn);
+        document.getElementById('toastText').innerText = t.toastText;
+
+        // ترجمة واجهة النسبة الموزونة
+        document.getElementById('weightedTitle').innerText = t.weightedTitle;
+        document.getElementById('weightedNote').innerHTML = t.weightedNote;
+        document.getElementById('fieldsetLegend').innerText = t.fieldsetLegend;
+        document.getElementById('lblWHs').innerText = t.lblWHs;
+        document.getElementById('lblWQat').innerText = t.lblWQat;
+        document.getElementById('lblWTah').innerText = t.lblWTah;
+        document.getElementById('lblHs').innerText = t.lblHs;
+        document.getElementById('lblQat').innerText = t.lblQat;
+        document.getElementById('lblTah').innerText = t.lblTah;
+        document.getElementById('btnCalcWeighted').innerText = t.btnCalcWeighted;
+
+        // ترجمة واجهة المعدل الجامعي الأساسية
+        document.getElementById('gpaMainTitle').innerText = t.gpaMainTitle;
+        document.getElementById('lblGpaScale').innerText = t.lblGpaScale;
+        document.getElementById('lblCalcType').innerText = t.lblCalcType;
+        document.getElementById('optScale5').innerText = t.optScale5;
+        document.getElementById('optScale4').innerText = t.optScale4;
+        document.getElementById('optScaleCum').innerText = t.optScaleCum;
+        document.getElementById('optScalePoints').innerText = t.optScalePoints;
+        document.getElementById('lblPrevHours').innerText = t.lblPrevHours;
+        document.getElementById('lblCurrentTerm').innerText = t.lblCurrentTerm;
+
+        document.getElementById('hdrSubName').innerText = t.hdrSubName;
+        document.getElementById('hdrSubHours').innerText = t.hdrSubHours;
+        document.getElementById('hdrSubGrade').innerText = t.hdrSubGrade;
+        document.getElementById('hdrSubStatus').innerText = t.hdrSubStatus;
+        document.getElementById('hdrSubAction').innerText = t.hdrSubAction;
+        document.getElementById('btnAddSubject').innerText = t.btnAddSubject;
+        document.getElementById('btnCalcGpa').innerText = t.btnCalcGpa;
+
+        // تحديث مسميات وحقول الإدخال بناءً على آلية الحساب المفضلة
+        const calcType = document.getElementById('calculationType').value;
+        document.getElementById('labelInput1').innerText = (calcType === 'cumulative') ? t.lblPrevGpa : t.lblPrevPoints;
+
+        // ترجمة الحذف والـ Placeholders بداخل أسطر المواد الديناميكية الحالية
+        document.querySelectorAll('.sub-name').forEach(el => el.placeholder = t.rowPh);
+        document.querySelectorAll('.btn-danger').forEach(el => el.innerText = t.deleteBtn);
+
+        // تحديث البليس هولدرز للعناصر الثابتة في الشاشة
+        document.querySelectorAll('[data-ph-ar]').forEach(el => {
+            el.placeholder = currentLang === 'ar' ? el.getAttribute('data-ph-ar') : el.getAttribute('data-ph-en');
+        });
+
+        // ترجمة الفوتر والنوافذ المنبثقة (Modals)
+        document.getElementById('btnFaqModal').innerText = t.btnFaqModal;
+        document.getElementById('btnPrivacyModal').innerText = t.btnPrivacyModal;
+        document.getElementById('btnContactModal').innerText = t.btnContactModal;
+        document.getElementById('lblFaqTitle').innerText = t.lblFaqTitle;
+        document.getElementById('lblPrivacyTitle').innerText = t.lblPrivacyTitle;
+        document.getElementById('lblContactTitle').innerText = t.lblContactTitle;
+        document.getElementById('lblContactDesc').innerText = t.lblContactDesc;
+        document.getElementById('btnSendContact').innerText = t.btnSendContact;
+        document.getElementById('privacyContent').innerHTML = t.privacyContent;
+
+        // ترجمة نصوص الأسئلة الشائعة
+        for (let i = 1; i <= 4; i++) {
+            document.getElementById(`faqQ${i}`).innerText = t[`faqQ${i}`];
+            document.getElementById(`faqA${i}`).innerText = t[`faqA${i}`];
+        }
+
+        // تحديث مصفوفة خيارات تقديرات المواد (A+, A, B, etc) بناءً على اللغة المختارة
+        updateGradeOptions();
+        
+        // إخفاء نتائج الحساب السابقة حتى لا يتشوه التصميم بسبب تداخل اللغتين
+        document.getElementById('weightedResult').style.display = 'none';
+        document.getElementById('gpaResult').style.display = 'none';
+    }
+
     window.onload = function() {
         document.getElementById('privacyContent').innerHTML = translations['ar'].privacyContent;
         let savedTheme = 'light';
         try { savedTheme = localStorage.getItem('theme'); } catch(e){}
         if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.setAttribute('data-theme', 'dark');
-            const btn = document.getElementById('themeBtn');
-            if(btn) btn.innerHTML = translations[currentLang].themeLight;
+            document.getElementById('themeBtn').innerText = translations[currentLang].themeLight;
         }
-    };
+    }
 </script>
-
 </body>
 </html>
