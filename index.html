@@ -297,8 +297,8 @@
             <div class="input-box">
                 <label id="lblCalcType">آلية الحساب المفضلة:</label>
                 <select id="calculationType" onchange="toggleCalculationTypeInputs()">
-                    <option value="cumulative" id="optScale4">المعدل التراكمي (بالطريقة التقليدية)</option>
-                    <option value="points" id="optScale5">النقاط التراكمية (الأكثر دقة)</option>
+                    <option value="cumulative" id="optCalcCum">المعدل التراكمي (بالطريقة التقليدية)</option>
+                    <option value="points" id="optCalcPoints">النقاط التراكمية (الأكثر دقة)</option>
                 </select>
             </div>
         </div>
@@ -379,7 +379,7 @@
     <div class="modal-card">
         <div class="modal-header">
             <h3 class="modal-title" id="lblContactTitle">✉️ تواصل معنا (Contact Us)</h3>
-            <button class="close-modal-btn" onclick="closeModal('privacyModal')">✕</button>
+            <button class="close-modal-btn" onclick="closeModal('contactModal')">✕</button>
         </div>
         <div class="contact-form">
             <p id="lblContactDesc">يسعدنا استقبال استفساراتكم واقتراحاتكم لتطوير الحاسبة. يمكنك إرسال رسالتك مباشرة من هنا:</p>
@@ -526,7 +526,6 @@
         document.getElementById('lblGpaScale').innerText = t.lblGpaScale;
         document.getElementById('lblCalcType').innerText = t.lblCalcType;
         document.getElementById('optScale5').innerText = t.optScale5;
-        document.getElementById('optScale4').innerText = t.optScale4;
         document.getElementById('optScale4').innerText = t.optScale4;
         document.getElementById('optCalcCum').innerText = t.optCalcCum;
         document.getElementById('optCalcPoints').innerText = t.optCalcPoints;
