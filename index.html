@@ -501,7 +501,12 @@
         const t = translations[currentLang];
         
         document.getElementById('langBtn').innerText = t.langBtn;
-        const currentTheme = document.documentElement.getAttribute('data-theme');
+        
+        let currentTheme = 'light';
+        try {
+            currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        } catch(e) {}
+        
         document.getElementById('themeBtn').innerText = currentTheme === 'dark' ? t.themeLight : t.themeDark;
         
         document.querySelectorAll('[data-ar]').forEach(el => {
@@ -630,7 +635,7 @@
     function generateRatingHtml(targetId) {
         const t = translations[currentLang];
         try {
-            if (localStorage && localStorage.getItem('user_has_rated')) {
+            if (window.localStorage && localStorage.getItem('user_has_rated')) {
                 return `<div class="inline-thank-you">${t.thankYouAlready}</div>`;
             }
         } catch (e) {}
@@ -649,7 +654,7 @@
 
     function submitInlineRating(score, targetId) {
         const t = translations[currentLang];
-        try { localStorage.setItem('user_has_rated', score); } catch (e) {}
+        try { if(window.localStorage) { localStorage.setItem('user_has_rated', score); } } catch (e) {}
         const block = document.getElementById(`rating_block_${targetId}`);
         if(block) { block.innerHTML = `<span class="inline-thank-you">${t.thankYou}</span>`; }
     }
@@ -747,15 +752,21 @@
     }
 
     function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
+        let currentTheme = 'light';
+        try {
+            currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        } catch(e) {}
+        
         const btn = document.getElementById('themeBtn');
         const t = translations[currentLang];
         if (currentTheme === 'dark') {
             document.documentElement.setAttribute('data-theme', 'light');
             btn.innerHTML = t.themeDark;
+            try { if(window.localStorage) { localStorage.setItem('theme', 'light'); } } catch(e) {}
         } else {
             document.documentElement.setAttribute('data-theme', 'dark');
             btn.innerHTML = t.themeLight;
+            try { if(window.localStorage) { localStorage.setItem('theme', 'dark'); } } catch(e) {}
         }
     }
 
@@ -873,14 +884,24 @@
     }
 
     window.onload = function() {
-        document.getElementById('privacyContent').innerHTML = translations['ar'].privacyContent;
+        try {
+            document.getElementById('privacyContent').innerHTML = translations['ar'].privacyContent;
+        } catch(e) {}
+        
         let savedTheme = 'light';
-        try { savedTheme = localStorage.getItem('theme'); } catch(e){}
-        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            const btn = document.getElementById('themeBtn');
-            if(btn) btn.innerHTML = translations[currentLang].themeLight;
-        }
+        try { 
+            if(window.localStorage) {
+                savedTheme = localStorage.getItem('theme') || 'light'; 
+            }
+        } catch(e){}
+        
+        try {
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                const btn = document.getElementById('themeBtn');
+                if(btn) btn.innerHTML = translations[currentLang].themeLight;
+            }
+        } catch(e) {}
     };
 </script>
 
