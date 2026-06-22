@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-ar="منصة معدلي - حاسبة الموزونة والمعدل الجامعي المطور" data-en="MyGrade Platform - Developed Weighted & University GPA Calculator">منصة معدلي - حاسبة الموزونة والمعدل الجامعي المطور</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3044187862670353"crossorigin="anonymous"></script>
+    <meta name="description" content="منصة معدلي - الحاسبة الأكاديمية المطورة لحساب المعدل الجامعي التراكمي ونقاط الفصل الحالي بدقة متناهية، وحساب النسبة الموزونة لخريجي الثانوية العامة للقبول في الجامعات السعودية.">
+    <meta name="keywords" content="معدلي, منصة معدلي, حاسبة المعدل, حساب المعدل الجامعي, النسبة الموزونة, حاسبة الموزونة, المعدل التراكمي, حساب النقاط">
+    <meta name="author" content="منصة معدلي">
+    
+    <title data-ar="منصة معدلي - حاسبة الموزونة والمعدل الجامعي المطور" data-en="Maadli Platform - Weighted & University GPA Calculator">منصة معدلي - حاسبة الموزونة والمعدل الجامعي المطور</title>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3044187862670353" crossorigin="anonymous"></script>
+    
     <style>
         :root {
             --primary: #2c3e50;
@@ -89,7 +95,7 @@
         .welcome-title { color: var(--primary); margin-bottom: 10px; font-size: 24px; }
         .welcome-subtitle { color: var(--text-muted); margin-bottom: 35px; font-size: 15px; }
         
-        .choices-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .choices-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
         @media (max-width: 500px) { .choices-grid { grid-template-columns: 1fr; } }
 
         .choice-card {
@@ -153,36 +159,11 @@
         [data-theme="dark"] .res-blue { background-color: #0c4a6e; color: #e0f2fe; border-color: #0369a1; }
         [data-theme="dark"] .res-green { background-color: #14532d; color: #dcfce7; border-color: #15803d; }
 
-        .inline-rating { margin-top: 15px; padding-top: 12px; border-top: 1px dashed rgba(0, 0, 0, 0.15); display: flex; flex-direction: column; align-items: center; gap: 8px; }
-        [data-theme="dark"] .inline-rating { border-top-color: rgba(255, 255, 255, 0.15); }
-        .inline-rating-title { font-size: 13px; font-weight: 600; opacity: 0.9; }
-        .inline-emojis { display: flex; gap: 10px; }
-        .inline-emoji-btn { background: var(--card-bg); border: 1px solid var(--border); color: var(--text-main); font-size: 14px; cursor: pointer; padding: 5px 12px; border-radius: 20px; transition: all 0.2s ease; }
-        .inline-emoji-btn:hover { transform: scale(1.05); border-color: var(--secondary); }
-        .inline-thank-you { font-size: 13px; color: var(--text-main); font-weight: bold; margin-top: 5px; animation: fadeIn 0.3s; }
-
         .sticky-footer { position: fixed; bottom: 0; left: 0; width: 100%; background-color: var(--card-bg); border-top: 1px solid var(--border); padding: 12px 24px; box-shadow: 0 -4px 20px rgba(0,0,0,0.03); display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; box-sizing: border-box; z-index: 100; }
         .footer-link-btn { background-color: var(--info-bg); border: 1px solid var(--border); color: var(--text-main); padding: 8px 18px; border-radius: 30px; font-size: 13px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: all 0.2s; }
         .footer-link-btn:hover { border-color: var(--secondary); color: var(--secondary); }
 
-        .toast-notification {
-            position: fixed;
-            top: -150px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #ef4444;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
-            font-weight: bold;
-            font-size: 14px;
-            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.2);
-            z-index: 2000;
-            transition: top 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        .toast-notification { position: fixed; top: -150px; left: 50%; transform: translateX(-50%); background-color: #ef4444; color: white; padding: 12px 25px; border-radius: 30px; font-weight: bold; font-size: 14px; box-shadow: 0 10px 20px rgba(239, 68, 68, 0.2); z-index: 2000; transition: top 0.4s ease; display: flex; align-items: center; gap: 8px; }
         .toast-notification.show { top: 30px; }
 
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; padding: 20px; box-sizing: border-box; }
@@ -236,6 +217,21 @@
                 <h3 id="choice2Title" data-ar="حساب المعدل الجامعي" data-en="Calculate University GPA">حساب المعدل الجامعي</h3>
                 <p id="choice2Desc" data-ar="لطلاب الجامعات لحساب المعدل التراكمي والنقاط بدقة متناهية" data-en="For university students to calculate cumulative GPA and points with extreme accuracy">لطلاب الجامعات لحساب المعدل التراكمي والنقاط بدقة متناهية</p>
             </div>
+        </div>
+
+        <div id="seo-content-section" style="margin-top: 40px; border-top: 1px solid var(--border); padding-top: 25px; font-size: 14px; line-height: 1.7; color: var(--text-muted); text-align: right;">
+            <section>
+                <h2 style="font-size: 16px; color: var(--secondary); margin-bottom: 10px;">حول منصة معدلي الأكاديمية</h2>
+                <p>تم تطوير <strong>منصة معدلي</strong> لتكون الأداة التقنية الاسترشادية الأولى للطلاب والطالبات في المملكة العربية السعودية، سواءً كانوا خريجي مرحلة الثانوية العامة المقبلين على بوابة القبول الموحد، أو الطلاب الأكاديميين المنتظمين في مختلف الجامعات السعودية والكليات التقنية.</p>
+            </section>
+            <section style="margin-top: 20px;">
+                <h3 style="font-size: 15px; color: var(--primary); margin-bottom: 8px;">كيف تساعدك حاسبة المعدل الجامعي؟</h3>
+                <p>تعتمد الحاسبة على معادلات رياضية دقيقة تقوم بجمع نقاط الفصول السابقة مع ساعات المواد الحالية المتوقعة، مما يجنب الطالب الفروقات الرقمية الناتجة عن عمليات التقريب اليدوي. يتيح لك النظام حساب المعدل الفصلي والتراكمي بناءً على النظامين الشائعين: نظام الـ 4 ونظام الـ 5 نقاط المتوافق مع أنظمة البلاك بورد والـ Banner الأكاديمية.</p>
+            </section>
+            <section style="margin-top: 20px;">
+                <h3 style="font-size: 15px; color: var(--primary); margin-bottom: 8px;">أهمية النسبة الموزونة للقبول الجامعي</h3>
+                <p>تعد النسبة الموزونة (المركبة) المعيار الأساسي للمفاضلة بين المتقدمين والمتقدمات في جامعات المملكة. تجمع الحاسبة الأوزان الثلاثة الأساسية لتمنحك النتيجة الفورية المعتمدة لدى عمادات القبول والتسجيل.</p>
+            </section>
         </div>
     </div>
 
@@ -346,7 +342,6 @@
             <h3 class="modal-title" id="lblFaqTitle">🙋‍♂️ دليل الأسئلة الشائعة وتساؤلات الطلاب</h3>
             <button class="close-modal-btn" onclick="closeModal('faqModal')">✕</button>
         </div>
-        
         <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)"><span id="faqQ1">ما هي أهمية آلية الحساب بالنقاط التراكمية؟</span> <span>➕</span></button>
             <div class="faq-answer"><p id="faqA1">حساب المعدل عبر النقاط السابقة يحميك من الفروقات الناتجة عن التقريب الرقمي في المعدل المكتوب؛ فهو يجمع نقاطك الحالية مع نقاطك التاريخية الحقيقية بدقة تامة ثم يقسمها على إجمالي الساعات للوصول للقيمة الحسابية الصحيحة.</p></div>
@@ -394,6 +389,7 @@
 
 <script>
     let currentLang = 'ar';
+    let subjectCount = 0;
 
     const translations = {
         ar: {
@@ -426,15 +422,13 @@
             faqQ2: "كيف أستخدم ميزة تفعيل وإلغاء تنشيط المواد الحالية؟", faqA2: "زر العين (👁️) يسمح لك باستبعاد مادة معينة مؤقتاً من الحسابات دون مسح بياناتها. هذا يساعدك على تجربة سيناريوهات مختلفة ومعرفة تأثير مادة معينة على معدلك التراكمي صعوداً وهبوطاً.",
             faqQ3: "كيف يتم احتساب النسبة الموزونة لخريجي الثانوية؟", faqA3: "يتم الحساب بضرب درجتك في النسبة المئوية التي تطلبها كل جامعة (مثال: درجة الثانوي × 0.30) ثم جمع النواتج الثلاثة معاً للحصول على نسبتك المركبة النهائية من 100%.",
             faqQ4: "ما الفرق بين نظام المعدل من 4 ونظام المعدل من 5؟", faqA4: "تختلف القيمة الوزنية لكل تقدير بحسب نظام الجامعة؛ فمثلاً تقدير (+A) يعادل 5.0 نقاط في نظام الـ 5، بينما يعادل 4.0 نقاط كاملة في نظام الـ 4. تضمن الحاسبة تطبيق الوزن الحقيقي المعتمد تلقائياً بمجرد اختيارك النظام.",
-            ratingTitle: "ما هو تقييمك لتجربة الحساب؟", rateExcellent: "😊 ممتاز", rateNeutral: "😐 عادي", rateSad: "🙁 سيء",
-            thankYou: "✨ شكراً لك! تم استقبال تقييمك بنجاح.", thankYouAlready: "✨ شكراً لاستخدامك منصتنا!",
             alertWeights: "تنبيه: يجب أن يكون مجموع نسب الأوزان المطلوبة يساوي 100% بالضبط.",
             alertGpaInputs: "الرجاء إدخال الساعات واختيار التقدير للمواد النشطة أولاً.",
             rowPh: "مثال: مادة اختياري", optSelectGrade: "اختر التقدير", deleteBtn: "حذف",
             resWeightedText: "✨ نسبتك الموزونة هي: ", resCurrentPoints: "📊 نقاط الفصل الحالي المكتسبة: ", resCurrentGpa: "📝 معدل الفصل الحالي المتوقع: ",
             resCumGpaPoints: "🎓 المعدل التراكمي الشامل (بالنقاط): ", resCumGpaTraditional: "🎓 المعدل التراكمي الكلي المتوقع: ", outOf: " من ", pointsWord: " نقطة ",
             resFooterPrecision: "تم حساب المعدل بقسمة إجمالي النقاط ({p}) على إجمالي الساعات ({h}) بدقة متناهية.",
-            contactSuccess: "شكراً لك! تم إرسال رسالتك بنجاح الدعم المباشر."
+            contactSuccess: "شكراً لك! تم إرسال رسالتك بنجاح."
         },
         en: {
             themeDark: "🌙 Dark Mode", themeLight: "☀️ Light Mode", langBtn: "🌐 العربية",
@@ -456,68 +450,60 @@
             privacyContent: `
                 <p>Welcome to Maadli Platform. We value your data privacy immensely and commit to it through the following terms:</p>
                 <h4>1. Data Collection and Usage</h4>
-                <p>This website is an interactive web calculator. All grades, hours, and GPAs you enter are processed and calculated fully locally inside your device's browser and are not saved or uploaded to any external servers.</p>
-                <h4>2. Cookies and Advertising</h4>
-                <p>We use third-party advertising companies (such as Google AdSense) to serve ads when you visit our website. These companies may use information (not including your name, address, or email) about your visits to this site in order to provide advertisements about goods and services of interest to you via Cookies.</p>
+                <p>This website is an interactive web calculator. All grades, hours, and GPAs you enter are processed and calculated locally entirely within your device's browser and are not saved or uploaded to any external servers.</p>
+                <h4>2. Cookies and Advertisements</h4>
+                <p>We use third-party advertising companies (such as Google AdSense) to serve ads when you visit our website. These companies may use information (not including your name, address, or email) about your visits to this and other websites in order to provide advertisements about goods and services of interest to you using Cookies.</p>
                 <h4>3. Third-Party Servers</h4>
-                <p>Google uses the DART cookie to serve ads to users based on their visit to our site and other sites on the Internet. Users may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy.</p>
+                <p>Google uses the DART cookie to serve ads to users based on their visits to our site and other sites on the Internet. Users may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy.</p>
             `,
-            faqQ1: "Why is the cumulative points calculation method important?", faqA1: "Calculating your GPA using previous points protects you from mathematical discrepancies caused by rounding errors in written GPAs. It aggregates your current points with your true historical points, then divides them by total hours for perfect mathematical precision.",
-            faqQ2: "How do I use the activate/deactivate subject feature?", faqA2: "The eye icon (👁️) allows you to temporarily exclude a specific subject from calculations without deleting its data. This helps you experiment with different scenarios and see the specific impact of a subject on your cumulative GPA.",
-            faqQ3: "How is the weighted percentage calculated for high school graduates?", faqA3: "It is calculated by multiplying your score by the percentage required by the university (e.g., High School Score × 0.30) and then summing up the three results to get your final aggregate score out of 100%.",
-            faqQ4: "What is the difference between a 4-point and a 5-point GPA system?", faqA4: "The weight of each grade varies by the university's system; for instance, an (A+) equals 5.0 points in a 5-point system, while it equals 4.0 points in a 4-point system. The calculator applies the official weight automatically based on your choice.",
-            ratingTitle: "How would you rate your calculation experience?", rateExcellent: "😊 Excellent", rateNeutral: "😐 Neutral", rateSad: "🙁 Bad",
-            thankYou: "✨ Thank you! Your rating has been received.", thankYouAlready: "✨ Thank you for using our platform!",
-            alertWeights: "Alert: The sum of the required weights must equal exactly 100%.",
-            alertGpaInputs: "Please enter the hours and select a grade for active subjects first.",
-            rowPh: "E.g., Elective Course", optSelectGrade: "Select Grade", deleteBtn: "Delete",
-            resWeightedText: "✨ Your weighted percentage is: ", resCurrentPoints: "📊 Current Term Points Earned: ", resCurrentGpa: "📝 Expected Current Term GPA: ",
-            resCumGpaPoints: "🎓 Comprehensive Cumulative GPA (By Points): ", resCumGpaTraditional: "🎓 Expected Cumulative GPA: ", outOf: " out of ", pointsWord: " points ",
-            resFooterPrecision: "The GPA was calculated by dividing total points ({p}) by total hours ({h}) with extreme accuracy.",
-            contactSuccess: "Thank you! Your message has been sent successfully to direct support."
+            faqQ1: "What is the importance of the Cumulative Points method?", faqA1: "Calculating GPA via previous points protects you from differences resulting from digital rounding. It accurately combines your current points with your historical points, then divides them by total hours for the most precise GPA.",
+            faqQ2: "How do I use the enable/disable feature for current subjects?", faqA2: "The eye button (👁️) allows you to temporarily exclude a specific subject from calculations without deleting its data. This helps you test different scenarios.",
+            faqQ3: "How is the weighted percentage calculated?", faqA3: "It is calculated by multiplying your score by the percentage required by each university, then adding the three results together to get your final composite percentage out of 100%.",
+            faqQ4: "What is the difference between a 4.0 and a 5.0 GPA scale?", faqA4: "The weight value for each grade varies according to the university system. The calculator ensures the correct accredited weight is applied automatically once you select the system.",
+            alertWeights: "Alert: The total sum of required weight percentages must equal exactly 100%.",
+            alertGpaInputs: "Please enter hours and select a grade for all active subjects first.",
+            rowPh: "E.g.: Elective Subject", optSelectGrade: "Select Grade", deleteBtn: "Delete",
+            resWeightedText: "✨ Your Weighted Percentage is: ", resCurrentPoints: "📊 Current Term Points Earned: ", resCurrentGpa: "📝 Expected Current Term GPA: ",
+            resCumGpaPoints: "🎓 Comprehensive Cumulative GPA (by points): ", resCumGpaTraditional: "🎓 Expected Overall Cumulative GPA: ", outOf: " out of ", pointsWord: " points ",
+            resFooterPrecision: "GPA calculated by dividing total points ({p}) by total hours ({h}) with extreme accuracy.",
+            contactSuccess: "Thank you! Your message has been sent successfully."
         }
     };
 
-    const gradeValues = {
-        5: { 'A+': 5.0, 'A': 4.75, 'B+': 4.5, 'B': 4.0, 'C+': 3.5, 'C': 3.0, 'D+': 2.5, 'D': 2.0, 'F': 1.0 },
-        4: { 'A+': 4.0, 'A': 4.0, 'B+': 3.5, 'B': 3.0, 'C+': 2.5, 'C': 2.0, 'D+': 1.5, 'D': 1.0, 'F': 0.0 }
-    };
+    // Core UI Functions
+    function toggleTheme() {
+        const html = document.getElementById('htmlTag');
+        const isDark = html.getAttribute('data-theme') === 'dark';
+        html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        document.getElementById('themeBtn').innerText = isDark ? translations[currentLang].themeLight : translations[currentLang].themeDark;
+    }
 
     function toggleLanguage() {
         currentLang = currentLang === 'ar' ? 'en' : 'ar';
         const html = document.getElementById('htmlTag');
+        html.setAttribute('lang', currentLang);
+        html.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
         
-        if (currentLang === 'en') {
-            html.setAttribute('dir', 'ltr');
-            html.setAttribute('lang', 'en');
-        } else {
-            html.setAttribute('dir', 'rtl');
-            html.setAttribute('lang', 'ar');
-        }
+        document.getElementById('langBtn').innerText = currentLang === 'ar' ? "🌐 English" : "🌐 العربية";
+        document.getElementById('themeBtn').innerText = html.getAttribute('data-theme') === 'dark' ? translations[currentLang].themeLight : translations[currentLang].themeDark;
         
         applyTranslations();
+        updateGradeOptions();
     }
 
     function applyTranslations() {
         const t = translations[currentLang];
-        
-        document.getElementById('langBtn').innerText = t.langBtn;
-        
-        let currentTheme = 'light';
-        try {
-            currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-        } catch(e) {}
-        
-        document.getElementById('themeBtn').innerText = currentTheme === 'dark' ? t.themeLight : t.themeDark;
+        document.title = currentLang === 'ar' ? "منصة معدلي - حاسبة الموزونة والمعدل الجامعي المطور" : "Maadli Platform - Weighted & University GPA Calculator";
         
         document.querySelectorAll('[data-ar]').forEach(el => {
-            el.innerText = el.getAttribute(`data-${currentLang}`);
+            el.innerHTML = el.getAttribute(`data-${currentLang}`);
+        });
+        document.querySelectorAll('[data-ph-ar]').forEach(el => {
+            el.placeholder = el.getAttribute(`data-ph-${currentLang}`);
         });
 
-        document.querySelectorAll('.backBtnText').forEach(btn => {
-            btn.innerText = t.backBtn;
-        });
-
+        // specific elements
+        document.querySelectorAll('.backBtnText').forEach(el => el.innerText = t.backBtn);
         document.getElementById('toastText').innerText = t.toastText;
         document.getElementById('weightedNote').innerHTML = t.weightedNote;
         document.getElementById('fieldsetLegend').innerText = t.fieldsetLegend;
@@ -535,375 +521,259 @@
         document.getElementById('optScale4').innerText = t.optScale4;
         document.getElementById('optCalcCum').innerText = t.optCalcCum;
         document.getElementById('optCalcPoints').innerText = t.optCalcPoints;
-        document.getElementById('lblPrevHours').innerText = t.lblPrevHours;
-        document.getElementById('lblCurrentTerm').innerText = t.lblCurrentTerm;
         
+        toggleCalculationTypeInputs(); // to update specific labels
+
+        document.getElementById('lblCurrentTerm').innerText = t.lblCurrentTerm;
         document.getElementById('hdrSubName').innerText = t.hdrSubName;
         document.getElementById('hdrSubHours').innerText = t.hdrSubHours;
         document.getElementById('hdrSubGrade').innerText = t.hdrSubGrade;
         document.getElementById('hdrSubStatus').innerText = t.hdrSubStatus;
         document.getElementById('hdrSubAction').innerText = t.hdrSubAction;
-        
         document.getElementById('btnAddSubject').innerText = t.btnAddSubject;
         document.getElementById('btnCalcGpa').innerText = t.btnCalcGpa;
-        
+
         document.getElementById('btnFaqModal').innerText = t.btnFaqModal;
         document.getElementById('btnPrivacyModal').innerText = t.btnPrivacyModal;
         document.getElementById('btnContactModal').innerText = t.btnContactModal;
+
         document.getElementById('lblFaqTitle').innerText = t.lblFaqTitle;
+        document.getElementById('faqQ1').innerText = t.faqQ1; document.getElementById('faqA1').innerText = t.faqA1;
+        document.getElementById('faqQ2').innerText = t.faqQ2; document.getElementById('faqA2').innerText = t.faqA2;
+        document.getElementById('faqQ3').innerText = t.faqQ3; document.getElementById('faqA3').innerText = t.faqA3;
+        document.getElementById('faqQ4').innerText = t.faqQ4; document.getElementById('faqA4').innerText = t.faqA4;
+
         document.getElementById('lblPrivacyTitle').innerText = t.lblPrivacyTitle;
+        document.getElementById('privacyContent').innerHTML = t.privacyContent;
+
         document.getElementById('lblContactTitle').innerText = t.lblContactTitle;
         document.getElementById('lblContactDesc').innerText = t.lblContactDesc;
         document.getElementById('btnSendContact').innerText = t.btnSendContact;
-        document.getElementById('privacyContent').innerHTML = t.privacyContent;
         
-        document.getElementById('faqQ1').innerText = t.faqQ1;
-        document.getElementById('faqA1').innerText = t.faqA1;
-        document.getElementById('faqQ2').innerText = t.faqQ2;
-        document.getElementById('faqA2').innerText = t.faqA2;
-        document.getElementById('faqQ3').innerText = t.faqQ3;
-        document.getElementById('faqA3').innerText = t.faqA3;
-        document.getElementById('faqQ4').innerText = t.faqQ4;
-        document.getElementById('faqA4').innerText = t.faqA4;
-
-        document.querySelectorAll('input[placeholder]').forEach(input => {
-            const phAr = input.getAttribute('data-ph-ar');
-            const phEn = input.getAttribute('data-ph-en');
-            if (phAr && phEn) {
-                input.placeholder = currentLang === 'ar' ? phAr : phEn;
-            }
+        // update select options inside subjects
+        document.querySelectorAll('.sub-grade-select').forEach(select => {
+            const currentVal = select.value;
+            select.options[0].text = t.optSelectGrade;
+            // The rest are updated via updateGradeOptions implicitly but need to maintain state
         });
+        updateGradeOptions(true);
+    }
 
-        document.querySelectorAll('textarea[placeholder]').forEach(txt => {
-            const phAr = txt.getAttribute('data-ph-ar');
-            const phEn = txt.getAttribute('data-ph-en');
-            if (phAr && phEn) {
-                txt.placeholder = currentLang === 'ar' ? phAr : phEn;
-            }
-        });
-
-        toggleCalculationTypeInputs();
-        updateRowPlaceholdersAndGrades();
-        
+    function showWelcomeScreen() {
+        document.getElementById('welcome-screen').style.display = 'block';
+        document.getElementById('weighted-tab').style.display = 'none';
+        document.getElementById('gpa-tab').style.display = 'none';
         document.getElementById('weightedResult').style.display = 'none';
         document.getElementById('gpaResult').style.display = 'none';
     }
 
-    function updateRowPlaceholdersAndGrades() {
-        const t = translations[currentLang];
-        const scale = document.getElementById('gpaScale').value;
-        
-        document.querySelectorAll('#subjectsContainer .subject-row').forEach(row => {
-            const nameInput = row.querySelector('input[type="text"]');
-            if(nameInput) nameInput.placeholder = t.rowPh;
-            
-            const hoursInput = row.querySelector('.sub-hours');
-            if(hoursInput) hoursInput.placeholder = currentLang === 'ar' ? 'الساعات' : 'Hours';
-            
-            const selectGrade = row.querySelector('.sub-grade');
-            if(selectGrade) {
-                const currentVal = selectGrade.value;
-                let options = `<option value="">${t.optSelectGrade}</option>`;
-                for (let grade in gradeValues[scale]) { 
-                    options += `<option value="${grade}">${grade}</option>`; 
-                }
-                selectGrade.innerHTML = options;
-                selectGrade.value = currentVal; 
-            }
-
-            const deleteBtn = row.querySelector('.btn-danger');
-            if(deleteBtn) deleteBtn.innerText = t.deleteBtn;
-        });
-    }
-
-    function toggleCalculationTypeInputs() {
-        const type = document.getElementById('calculationType').value;
-        const label1 = document.getElementById('labelInput1');
-        const input1 = document.getElementById('prevGpa');
-        const t = translations[currentLang];
-        
-        if (type === 'points') {
-            label1.innerText = t.lblPrevPoints;
-            input1.placeholder = t.phPointsExample;
-            if(input1.value === "0") input1.value = "";
-        } else {
-            label1.innerText = t.lblPrevGpa;
-            input1.placeholder = t.phGpaFreshman;
-            if(input1.value === "") input1.value = "0";
-        }
-    }
-
-    function generateRatingHtml(targetId) {
-        const t = translations[currentLang];
-        try {
-            if (window.localStorage && localStorage.getItem('user_has_rated')) {
-                return `<div class="inline-thank-you">${t.thankYouAlready}</div>`;
-            }
-        } catch (e) {}
-        
-        return `
-            <div class="inline-rating" id="rating_block_${targetId}">
-                <span class="inline-rating-title">${t.ratingTitle}</span>
-                <div class="inline-emojis">
-                    <button class="inline-emoji-btn" onclick="submitInlineRating('happy', '${targetId}')">${t.rateExcellent}</button>
-                    <button class="inline-emoji-btn" onclick="submitInlineRating('neutral', '${targetId}')">${t.rateNeutral}</button>
-                    <button class="inline-emoji-btn" onclick="submitInlineRating('sad', '${targetId}')">${t.rateSad}</button>
-                </div>
-            </div>
-        `;
-    }
-
-    function submitInlineRating(score, targetId) {
-        const t = translations[currentLang];
-        try { if(window.localStorage) { localStorage.setItem('user_has_rated', score); } } catch (e) {}
-        const block = document.getElementById(`rating_block_${targetId}`);
-        if(block) { block.innerHTML = `<span class="inline-thank-you">${t.thankYou}</span>`; }
-    }
-
-    function showToastAlert() {
-        const toast = document.getElementById('toastAlert');
-        toast.classList.add('show');
-        setTimeout(() => { toast.classList.remove('show'); }, 2500);
-    }
-
-    function updateRowNumbers() {
-        const rows = document.querySelectorAll('#subjectsContainer .subject-row');
-        rows.forEach((row, index) => {
-            const numDiv = row.querySelector('.row-number');
-            if (numDiv) { numDiv.innerText = index + 1; }
-        });
-    }
-
-    function removeSubjectRow(rowId) {
-        const container = document.getElementById('subjectsContainer');
-        const totalRows = container.querySelectorAll('.subject-row').length;
-        if (totalRows <= 1) { showToastAlert(); return; }
-        const row = document.getElementById(`row_${rowId}`);
-        if(row) {
-            row.remove();
-            updateRowNumbers();
-        }
-    }
-
-    function toggleRowStatus(button, rowId) {
-        const row = document.getElementById(`row_${rowId}`);
-        if (!row) return;
-
-        if (row.classList.contains('disabled-style')) {
-            row.classList.remove('disabled-style');
-            button.innerHTML = '👁️';
-            row.setAttribute('data-enabled', 'true');
-        } else {
-            row.classList.add('disabled-style');
-            button.innerHTML = '🙈';
-            row.setAttribute('data-enabled', 'false');
-        }
-    }
-
-    function addSubjectRow() {
-        const container = document.getElementById('subjectsContainer');
-        const scale = document.getElementById('gpaScale').value;
-        const rowId = Date.now() + Math.random().toString(36).substr(2, 5);
-        const t = translations[currentLang];
-        
-        let options = `<option value="">${t.optSelectGrade}</option>`;
-        for (let grade in gradeValues[scale]) { options += `<option value="${grade}">${grade}</option>`; }
-
-        const rowHtml = `
-            <div class="subject-row" id="row_${rowId}" data-enabled="true">
-                <div class="row-number">0</div>
-                <input type="text" placeholder="${t.rowPh}">
-                <input type="number" class="sub-hours" placeholder="${currentLang === 'ar' ? 'الساعات' : 'Hours'}" min="1">
-                <select class="sub-grade">${options}</select>
-                <button class="btn-toggle-row" onclick="toggleRowStatus(this, '${rowId}')">👁️</button>
-                <button class="btn-danger" onclick="removeSubjectRow('${rowId}')">${t.deleteBtn}</button>
-            </div>
-        `;
-        container.insertAdjacentHTML('beforeend', rowHtml);
-        updateRowNumbers();
+    function showCalculator(id) {
+        document.getElementById('welcome-screen').style.display = 'none';
+        document.getElementById(id).style.display = 'block';
     }
 
     function openGpaCalculator() {
-        document.getElementById('subjectsContainer').innerHTML = '';
-        for (let i = 0; i < 6; i++) { addSubjectRow(); }
         showCalculator('gpa-tab');
-    }
-
-    function updateGradeOptions() {
-        document.getElementById('subjectsContainer').innerHTML = '';
-        for (let i = 0; i < 6; i++) { addSubjectRow(); }
-    }
-
-    function openModal(modalId) { document.getElementById(modalId).classList.add('open'); }
-    function closeModal(modalId) { document.getElementById(modalId).classList.remove('open'); }
-    function closeModalOutside(event, modalId) { if(event.target.id === modalId) { closeModal(modalId); } }
-
-    function toggleFaq(button) {
-        const answer = button.nextElementSibling;
-        const icon = button.querySelectorAll('span')[1];
-        if (answer.style.maxHeight && answer.style.maxHeight !== '0px') {
-            answer.style.maxHeight = '0px';
-            answer.style.padding = '0 15px';
-            icon.innerHTML = '➕';
-        } else {
-            answer.style.maxHeight = answer.scrollHeight + "px";
-            answer.style.padding = '10px 15px';
-            icon.innerHTML = '➖';
+        if(subjectCount === 0) {
+            addSubjectRow();
+            addSubjectRow();
+            addSubjectRow();
         }
     }
 
-    function toggleTheme() {
-        let currentTheme = 'light';
-        try {
-            currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-        } catch(e) {}
-        
-        const btn = document.getElementById('themeBtn');
-        const t = translations[currentLang];
-        if (currentTheme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'light');
-            btn.innerHTML = t.themeDark;
-            try { if(window.localStorage) { localStorage.setItem('theme', 'light'); } } catch(e) {}
-        } else {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            btn.innerHTML = t.themeLight;
-            try { if(window.localStorage) { localStorage.setItem('theme', 'dark'); } } catch(e) {}
-        }
+    // Modal Functions
+    function openModal(id) { document.getElementById(id).classList.add('open'); }
+    function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+    function closeModalOutside(event, id) { if(event.target.id === id) closeModal(id); }
+    function toggleFaq(btn) {
+        const answer = btn.nextElementSibling;
+        const icon = btn.querySelector('span:last-child');
+        if(answer.style.maxHeight) { answer.style.maxHeight = null; answer.style.padding = "0 15px"; icon.innerText = "➕"; } 
+        else { answer.style.maxHeight = answer.scrollHeight + 30 + "px"; answer.style.padding = "15px"; icon.innerText = "➖"; }
+    }
+    
+    function showToast(msg) {
+        const toast = document.getElementById('toastAlert');
+        document.getElementById('toastText').innerText = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
     }
 
-    function showCalculator(calculatorId) {
-        document.getElementById('welcome-screen').style.display = 'none';
-        document.getElementById(calculatorId).style.display = 'block';
-    }
-
-    function showWelcomeScreen() {
-        const calculators = document.querySelectorAll('.calculator-content');
-        calculators.forEach(calc => calc.style.display = 'none');
-        document.getElementById('welcome-screen').style.display = 'block';
-    }
-
-    function handleContactSubmit() {
-        const name = document.getElementById('contactName').value;
-        const email = document.getElementById('contactEmail').value;
-        const message = document.getElementById('contactMessage').value;
-
-        const subject = encodeURIComponent("منصة معدلي - ملاحظة جديدة من: " + name);
-        const body = encodeURIComponent("الاسم: " + name + "\nالبريد للرد: " + email + "\n\nالملاحظة:\n" + message);
-        
-        window.location.href = `mailto:maadlisupport@gmail.com?subject=${subject}&body=${body}`;
-        
-        alert(translations[currentLang].contactSuccess);
-        closeModal('contactModal');
-    }
-
+    // Weighted Calculator
     function calculateWeighted() {
-        const t = translations[currentLang];
         const wHs = parseFloat(document.getElementById('weightHs').value) || 0;
         const wQat = parseFloat(document.getElementById('weightQat').value) || 0;
         const wTah = parseFloat(document.getElementById('weightTah').value) || 0;
-
-        if ((wHs + wQat + wTah) !== 100) {
-            alert(t.alertWeights);
-            return;
-        }
+        
+        if(wHs + wQat + wTah !== 100) { alert(translations[currentLang].alertWeights); return; }
 
         const hs = parseFloat(document.getElementById('highSchool').value) || 0;
         const qat = parseFloat(document.getElementById('qat').value) || 0;
         const tah = parseFloat(document.getElementById('tahseely').value) || 0;
 
-        const result = ((hs * wHs) + (qat * wQat) + (tah * wTah)) / 100;
+        const result = (hs * (wHs/100)) + (qat * (wQat/100)) + (tah * (wTah/100));
+        
+        const resDiv = document.getElementById('weightedResult');
+        resDiv.style.display = 'block';
+        resDiv.innerHTML = `${translations[currentLang].resWeightedText} <span style="color: var(--primary); font-size: 24px; display:block; margin-top:10px;">${result.toFixed(2)}%</span>`;
+    }
 
-        const resCard = document.getElementById('weightedResult');
-        resCard.innerHTML = `<div>${t.resWeightedText} <span style="font-size:24px; color:var(--secondary);">${result.toFixed(2)}%</span></div>` + generateRatingHtml('weighted');
-        resCard.style.display = 'block';
+    // GPA Calculator Logic
+    function toggleCalculationTypeInputs() {
+        const type = document.getElementById('calculationType').value;
+        const t = translations[currentLang];
+        document.getElementById('lblPrevHours').innerText = t.lblPrevHours;
+        
+        if (type === 'points') {
+            document.getElementById('labelInput1').innerText = t.lblPrevPoints;
+            document.getElementById('prevGpa').placeholder = t.phPointsExample;
+        } else {
+            document.getElementById('labelInput1').innerText = t.lblPrevGpa;
+            document.getElementById('prevGpa').placeholder = t.phGpaFreshman;
+        }
+    }
+
+    function getGradeMap(scale) {
+        if(scale === '5') {
+            return [
+                {name: 'A+', val: 5.0}, {name: 'A', val: 4.75}, {name: 'B+', val: 4.5},
+                {name: 'B', val: 4.0}, {name: 'C+', val: 3.5}, {name: 'C', val: 3.0},
+                {name: 'D+', val: 2.5}, {name: 'D', val: 2.0}, {name: 'F', val: 1.0}
+            ];
+        } else {
+            return [
+                {name: 'A+', val: 4.0}, {name: 'A', val: 3.75}, {name: 'B+', val: 3.5},
+                {name: 'B', val: 3.0}, {name: 'C+', val: 2.5}, {name: 'C', val: 2.0},
+                {name: 'D+', val: 1.5}, {name: 'D', val: 1.0}, {name: 'F', val: 0.0}
+            ];
+        }
+    }
+
+    function updateGradeOptions(preserveState = false) {
+        const scale = document.getElementById('gpaScale').value;
+        const grades = getGradeMap(scale);
+        const selects = document.querySelectorAll('.sub-grade-select');
+        
+        selects.forEach(select => {
+            const currentVal = select.value;
+            select.innerHTML = `<option value="">${translations[currentLang].optSelectGrade}</option>`;
+            grades.forEach(g => {
+                let opt = document.createElement('option');
+                opt.value = g.val;
+                opt.innerText = `${g.name} (${g.val})`;
+                select.appendChild(opt);
+            });
+            if (preserveState && currentVal) select.value = currentVal;
+        });
+    }
+
+    function addSubjectRow() {
+        subjectCount++;
+        const t = translations[currentLang];
+        const row = document.createElement('div');
+        row.className = 'subject-row';
+        row.id = `sub-row-${subjectCount}`;
+        
+        row.innerHTML = `
+            <div class="row-number">${subjectCount}</div>
+            <input type="text" placeholder="${t.rowPh}">
+            <input type="number" class="sub-hours" min="1" max="10" placeholder="0">
+            <select class="sub-grade-select"></select>
+            <button class="btn-toggle-row" onclick="toggleRowState(this)">👁️</button>
+            <button class="btn-danger" onclick="deleteRow(this)">🗑️</button>
+        `;
+        document.getElementById('subjectsContainer').appendChild(row);
+        
+        const newSelect = row.querySelector('.sub-grade-select');
+        const grades = getGradeMap(document.getElementById('gpaScale').value);
+        newSelect.innerHTML = `<option value="">${t.optSelectGrade}</option>`;
+        grades.forEach(g => {
+            newSelect.innerHTML += `<option value="${g.val}">${g.name} (${g.val})</option>`;
+        });
+        
+        updateRowNumbers();
+    }
+
+    function toggleRowState(btn) {
+        const row = btn.closest('.subject-row');
+        row.classList.toggle('disabled-style');
+        btn.innerText = row.classList.contains('disabled-style') ? "🙈" : "👁️";
+    }
+
+    function deleteRow(btn) {
+        const activeRows = document.querySelectorAll('.subject-row').length;
+        if (activeRows <= 1) { showToast(translations[currentLang].toastText); return; }
+        btn.closest('.subject-row').remove();
+        updateRowNumbers();
+    }
+
+    function updateRowNumbers() {
+        const rows = document.querySelectorAll('.subject-row .row-number');
+        rows.forEach((el, index) => { el.innerText = index + 1; });
     }
 
     function calculateAdvancedGPA() {
         const t = translations[currentLang];
-        const scale = document.getElementById('gpaScale').value;
-        const calcType = document.getElementById('calculationType').value;
-        
-        const prevInput = parseFloat(document.getElementById('prevGpa').value) || 0;
+        const scale = parseFloat(document.getElementById('gpaScale').value);
+        const type = document.getElementById('calculationType').value;
+        const prevInput1 = parseFloat(document.getElementById('prevGpa').value) || 0;
         const prevHours = parseFloat(document.getElementById('prevHours').value) || 0;
 
-        let totalPoints = 0;
-        let totalHours = 0;
-
-        if (calcType === 'points') {
-            totalPoints += prevInput;
-            totalHours += prevHours;
+        let totalPrevPoints = 0;
+        if(type === 'points') {
+            totalPrevPoints = prevInput1;
         } else {
-            totalPoints += prevInput * prevHours;
-            totalHours += prevHours;
+            totalPrevPoints = prevInput1 * prevHours;
         }
 
-        let currentTermPoints = 0;
-        let currentTermHours = 0;
-        let hasActiveSubjects = false;
-        let inputsValid = true;
+        let currentHours = 0;
+        let currentPoints = 0;
+        let valid = true;
 
-        document.querySelectorAll('#subjectsContainer .subject-row').forEach(row => {
-            if (row.getAttribute('data-enabled') === 'true') {
-                hasActiveSubjects = true;
-                const hours = parseFloat(row.querySelector('.sub-hours').value);
-                const grade = row.querySelector('.sub-grade').value;
-
-                if (isNaN(hours) || hours <= 0 || !grade) {
-                    inputsValid = false;
-                } else {
-                    const gradeVal = gradeValues[scale][grade];
-                    currentTermPoints += gradeVal * hours;
-                    currentTermHours += hours;
+        const rows = document.querySelectorAll('.subject-row');
+        rows.forEach(row => {
+            if(!row.classList.contains('disabled-style')) {
+                const hrs = parseFloat(row.querySelector('.sub-hours').value);
+                const grd = parseFloat(row.querySelector('.sub-grade-select').value);
+                if (isNaN(hrs) || isNaN(grd)) { valid = false; }
+                else {
+                    currentHours += hrs;
+                    currentPoints += (hrs * grd);
                 }
             }
         });
 
-        if (hasActiveSubjects && !inputsValid) {
-            alert(t.alertGpaInputs);
-            return;
-        }
+        if(!valid && currentHours === 0) { alert(t.alertGpaInputs); return; }
 
-        totalPoints += currentTermPoints;
-        totalHours += currentTermHours;
-
-        const currentTermGpa = currentTermHours > 0 ? (currentTermPoints / currentTermHours) : 0;
-        const cumulativeGpa = totalHours > 0 ? (totalPoints / totalHours) : 0;
-
-        const resCard = document.getElementById('gpaResult');
-        let footerText = t.resFooterPrecision.replace('{p}', totalPoints.toFixed(2)).replace('{h}', totalHours);
-
-        resCard.innerHTML = `
-            <div style="margin-bottom:10px;">${t.resCurrentPoints} <span>${currentTermPoints.toFixed(2)} ${t.pointsWord}</span></div>
-            <div style="margin-bottom:10px;">${t.resCurrentGpa} <span>${currentTermGpa.toFixed(2)} ${t.outOf} ${scale}</span></div>
-            <div style="margin-bottom:15px; font-size:20px; border-top:1px solid var(--border); padding-top:15px;">
-                ${t.resCumGpaTraditional} <span style="color:var(--success); font-size:26px;">${cumulativeGpa.toFixed(2)}</span> ${t.outOf} ${scale}
-            </div>
-            <div style="font-size:12px; color:var(--text-muted); font-weight:normal; margin-bottom:10px;">${footerText}</div>
-        ` + generateRatingHtml('gpa');
+        const totalHours = prevHours + currentHours;
+        const totalPoints = totalPrevPoints + currentPoints;
         
-        resCard.style.display = 'block';
+        let termGpa = currentHours > 0 ? (currentPoints / currentHours) : 0;
+        let cumGpa = totalHours > 0 ? (totalPoints / totalHours) : 0;
+
+        let resHtml = `
+            <div style="text-align: right; font-size: 14px; margin-bottom: 10px;">
+                ${t.resCurrentPoints} <strong>${currentPoints.toFixed(2)}</strong><br>
+                ${t.resCurrentGpa} <strong style="font-size: 16px;">${termGpa.toFixed(2)}</strong> ${t.outOf} ${scale}
+            </div>
+            <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.1); margin: 15px 0;">
+            <div style="font-size: 16px;">
+                ${type === 'points' ? t.resCumGpaPoints : t.resCumGpaTraditional} 
+                <span style="color: var(--success); font-size: 26px; display:block; margin-top:8px;">${cumGpa.toFixed(2)} <span style="font-size: 14px; color: var(--text-muted);">${t.outOf} ${scale}</span></span>
+            </div>
+        `;
+
+        document.getElementById('gpaResult').style.display = 'block';
+        document.getElementById('gpaResult').innerHTML = resHtml;
     }
 
-    window.onload = function() {
-        try {
-            document.getElementById('privacyContent').innerHTML = translations['ar'].privacyContent;
-        } catch(e) {}
-        
-        let savedTheme = 'light';
-        try { 
-            if(window.localStorage) {
-                savedTheme = localStorage.getItem('theme') || 'light'; 
-            }
-        } catch(e){}
-        
-        try {
-            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                const btn = document.getElementById('themeBtn');
-                if(btn) btn.innerHTML = translations[currentLang].themeLight;
-            }
-        } catch(e) {}
-    };
+    function handleContactSubmit() {
+        alert(translations[currentLang].contactSuccess);
+        closeModal('contactModal');
+    }
+
+    // Initialize English policy text replacement if loaded in English immediately
+    window.onload = () => { applyTranslations(); };
 </script>
 
 </body>
